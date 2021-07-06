@@ -10,10 +10,6 @@ import javax.inject.Singleton
 @Module
 class NetworkModule {
 
-    // rest of the code....
-
-
-
     @Singleton
     @Provides
     fun provideApiService(retrofit: Retrofit) : ApiService {
@@ -24,9 +20,8 @@ class NetworkModule {
     @Singleton
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://rickandmortyapi.com/")
+            .baseUrl("https://rickandmortyapi.com/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-
 }

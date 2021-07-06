@@ -1,4 +1,4 @@
-package android.example.testappyarus.presentation
+package android.example.testappyarus.presentation.common
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

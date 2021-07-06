@@ -1,6 +1,7 @@
-package android.example.testappyarus.presentation
+package android.example.testappyarus.presentation.common
 
 import android.example.testappyarus.di.AppComponent
+import android.example.testappyarus.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 

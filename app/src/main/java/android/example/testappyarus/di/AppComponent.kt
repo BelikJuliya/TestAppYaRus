@@ -1,8 +1,8 @@
 package android.example.testappyarus.di
 
 import android.app.Application
-import android.example.testappyarus.presentation.MainActivity
-import android.example.testappyarus.presentation.YarusApp
+import android.example.testappyarus.presentation.common.MainActivity
+import android.example.testappyarus.presentation.common.YarusApp
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule

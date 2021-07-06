@@ -1,7 +1,8 @@
-package android.example.testappyarus.presentation
+package android.example.testappyarus.presentation.common
 
 import android.example.testappyarus.R
 import android.example.testappyarus.di.AppComponent
+import android.example.testappyarus.presentation.characterFlow.CharacterViewModel
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
         val viewModel = ViewModelProvider(this, viewModelFactory)[CharacterViewModel::class.java]
         viewModel.sayBlaBla()
+        viewModel.getCharacterApiCall()
 
     }
 }

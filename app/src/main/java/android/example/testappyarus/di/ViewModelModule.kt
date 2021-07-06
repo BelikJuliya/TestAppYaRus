@@ -1,8 +1,8 @@
 package android.example.testappyarus.di
 
-import android.example.testappyarus.presentation.CharacterViewModel
-import android.example.testappyarus.presentation.ViewModelFactory
-import android.example.testappyarus.presentation.ViewModelKey
+import android.example.testappyarus.presentation.characterFlow.CharacterViewModel
+import android.example.testappyarus.presentation.common.ViewModelFactory
+import android.example.testappyarus.presentation.common.ViewModelKey
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import dagger.Binds
