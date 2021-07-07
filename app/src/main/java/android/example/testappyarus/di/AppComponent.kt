@@ -1,6 +1,7 @@
 package android.example.testappyarus.di
 
 import android.app.Application
+import android.example.testappyarus.presentation.characterFlow.CharacterListFragment
 import android.example.testappyarus.presentation.common.MainActivity
 import android.example.testappyarus.presentation.common.YarusApp
 import dagger.BindsInstance
@@ -19,7 +20,9 @@ interface AppComponent : AndroidInjector<YarusApp> {
 
     override fun inject(application: YarusApp)
 
-    fun inject(activity: MainActivity)
+    //fun inject(activity: MainActivity)
+
+    fun inject(characterListFragment: CharacterListFragment)
 
 
     @Component.Builder

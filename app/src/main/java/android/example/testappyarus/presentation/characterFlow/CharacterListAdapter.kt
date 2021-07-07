@@ -2,26 +2,27 @@ package android.example.testappyarus.presentation.characterFlow
 
 import android.example.testappyarus.R
 import android.example.testappyarus.domain.Character
-import android.icu.number.NumberFormatter.with
-import android.icu.number.NumberRangeFormatter.with
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Picasso
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 
-class CharacterListAdapter(val characters: List<Character>) :
+class CharacterListAdapter() :
     RecyclerView.Adapter<CharacterListAdapter.MyViewHolder>() {
+    var listCharacters = ArrayList<Character>()
+
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var characterNameTextView: TextView? = null
-        var characterSpiciesTextView: TextView? = null
+        var characterSpeciesTextView: TextView? = null
         var characterAvatarImageView: ImageView? = null
 
         init {
             characterNameTextView = itemView.findViewById(R.id.character_name)
-            characterSpiciesTextView = itemView.findViewById(R.id.character_species)
+            characterSpeciesTextView = itemView.findViewById(R.id.character_species)
             characterAvatarImageView = itemView.findViewById(R.id.character_avatar)
         }
     }
@@ -34,10 +35,16 @@ class CharacterListAdapter(val characters: List<Character>) :
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.characterNameTextView?.text = characters[position].name
-        holder.characterSpiciesTextView?.text = characters[position].species
+        holder.characterNameTextView?.text = listCharacters[position].name
+        holder.characterSpeciesTextView?.text = listCharacters[position].species
+        holder.characterAvatarImageView?.let {
+            Glide.with(holder.characterAvatarImageView!!).load(listCharacters[position].imageUrl)
+                .apply(RequestOptions.centerCropTransform()).into(
+                it
+            )
+        }
         //holder.characterAvatarImageView?.setImageBitmap(Picasso.with(ap).load(imageUri).into(ivBasicImage);)
     }
 
-    override fun getItemCount() = characters.size
+    override fun getItemCount() = listCharacters.size
 }

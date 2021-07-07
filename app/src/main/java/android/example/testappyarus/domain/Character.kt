@@ -1,4 +1,4 @@
 package android.example.testappyarus.domain
 
-class Character(val name: String, val species: String, image: String) {
+data class Character(val name: String, val species: String, val imageUrl: String, val id: Int) {
 }

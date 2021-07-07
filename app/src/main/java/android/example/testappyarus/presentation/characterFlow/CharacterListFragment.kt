@@ -1,25 +1,67 @@
 package android.example.testappyarus.presentation.characterFlow
 
+import android.example.testappyarus.R
+import android.example.testappyarus.domain.Character
+import android.example.testappyarus.presentation.common.ViewModelFactory
+import android.example.testappyarus.presentation.common.YarusApp
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.example.testappyarus.R
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import javax.inject.Inject
 
 /**
  * A fragment representing a list of characters.
  */
 class CharacterListFragment : Fragment() {
+    @Inject
+     lateinit var viewModelFactory: ViewModelFactory
+     private val adapter = CharacterListAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val recyclerView: RecyclerView? = view?.findViewById(R.id.character_recycler_view)
-        recyclerView?.layoutManager = LinearLayoutManager(activity)
+        YarusApp.appComponent.inject(this) //may be it should be better initialized in Main Activity
+        val viewModel = ViewModelProvider(this, viewModelFactory)[CharacterViewModel::class.java]
+        viewModel.loadCharacters()
+
+        //initRecyclerView()
+
+        val characterObserver = Observer<List<Character>> { characterList ->
+            adapter.listCharacters = characterList as ArrayList<Character>
+            adapter.notifyDataSetChanged()
+            println("New list set to adapter")
+//            val adapter = CharacterListAdapter()
+            //recyclerView?.adapter = adapter
+//            adapter.notifyDataSetChanged()
+            // Update the UI, in this case, a TextView.
+        }
+        viewModel.charactersLiveData.observe(viewLifecycleOwner, characterObserver)
+
         return inflater.inflate(R.layout.fragment_character_list, container, false)
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initRecyclerView()
+
+    }
+
+    private fun initRecyclerView(){
+        val recyclerView: RecyclerView? = view?.findViewById(R.id.character_recycler_view)
+        recyclerView?.layoutManager = LinearLayoutManager(activity)
+        recyclerView?.setHasFixedSize(true)
+        recyclerView?.adapter = adapter
+    }
+
+//    private fun loadCharacters(){
+//        val viewModel = ViewModelProvider(this, viewModelFactory)[CharacterViewModel::class.java]
+//        viewModel.getCharacterApiCall()
+//    }
 }
