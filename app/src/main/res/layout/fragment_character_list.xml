@@ -13,7 +13,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         app:layoutManager="LinearLayoutManager"
-        tools:context=".presentation.characterFlow.CharacterListFragment"
+        tools:context=".presentation.characterFlow.list.CharacterListFragment"
         tools:listitem="@layout/character_list_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

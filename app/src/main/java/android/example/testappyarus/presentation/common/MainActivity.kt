@@ -1,11 +1,8 @@
 package android.example.testappyarus.presentation.common
 
 import android.example.testappyarus.R
-import android.example.testappyarus.di.AppComponent
-import android.example.testappyarus.presentation.characterFlow.CharacterViewModel
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import javax.inject.Inject
 

@@ -1,6 +1,6 @@
 package android.example.testappyarus.di
 
-import android.example.testappyarus.presentation.characterFlow.CharacterViewModel
+import android.example.testappyarus.presentation.characterFlow.list.CharacterViewModel
 import android.example.testappyarus.presentation.common.ViewModelFactory
 import android.example.testappyarus.presentation.common.ViewModelKey
 import androidx.lifecycle.ViewModel

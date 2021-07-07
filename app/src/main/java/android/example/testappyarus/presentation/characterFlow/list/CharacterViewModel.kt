@@ -1,4 +1,4 @@
-package android.example.testappyarus.presentation.characterFlow
+package android.example.testappyarus.presentation.characterFlow.list
 
 import android.example.testappyarus.data.IRepository
 import android.example.testappyarus.domain.Character

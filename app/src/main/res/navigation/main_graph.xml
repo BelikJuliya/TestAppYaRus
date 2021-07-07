@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/characterListFragment"
-        android:name="android.example.testappyarus.presentation.characterFlow.CharacterListFragment"
+        android:name="android.example.testappyarus.presentation.characterFlow.list.CharacterListFragment"
         android:label="CharacterListFragment" />
 </navigation>
