@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_characterListFragment_to_characterDetailsFragment"
             app:destination="@id/characterDetailsFragment" />
+        <action
+            android:id="@+id/action_characterListFragment_to_locationListFragment"
+            app:destination="@id/locationListFragment" />
     </fragment>
     <fragment
         android:id="@+id/characterDetailsFragment"
@@ -20,4 +23,8 @@
             android:name="characterId"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/locationListFragment"
+        android:name="android.example.testappyarus.presentation.locationFlow.list.LocationListFragment"
+        android:label="LocationListFragment" />
 </navigation>

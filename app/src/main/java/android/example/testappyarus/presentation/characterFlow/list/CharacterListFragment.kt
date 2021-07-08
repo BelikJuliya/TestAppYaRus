@@ -30,27 +30,21 @@ class CharacterListFragment : Fragment() {
         YarusApp.appComponent.inject(this) //may be it should be better initialized in Main Activity
         val viewModel = ViewModelProvider(this, viewModelFactory)[CharacterViewModel::class.java]
         viewModel.loadCharacters()
-
-        //initRecyclerView()
-
         val characterObserver = Observer<List<Character>> { characterList ->
             adapter.listCharacters = characterList as ArrayList<Character>
             adapter.notifyDataSetChanged()
             println("New list set to adapter")
-//            val adapter = CharacterListAdapter()
-            //recyclerView?.adapter = adapter
-//            adapter.notifyDataSetChanged()
-            // Update the UI, in this case, a TextView.
         }
         viewModel.charactersLiveData.observe(viewLifecycleOwner, characterObserver)
 
-        return inflater.inflate(R.layout.fragment_character_list, container, false)
+        val view = inflater.inflate(R.layout.fragment_character_list, container, false)
+
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
-
     }
 
     private fun initRecyclerView(){
@@ -59,9 +53,4 @@ class CharacterListFragment : Fragment() {
         recyclerView?.setHasFixedSize(true)
         recyclerView?.adapter = adapter
     }
-
-//    private fun loadCharacters(){
-//        val viewModel = ViewModelProvider(this, viewModelFactory)[CharacterViewModel::class.java]
-//        viewModel.getCharacterApiCall()
-//    }
 }
