@@ -11,14 +11,11 @@ interface ApiService {
     @GET("character/{id}")
     suspend fun getCharacterDetails(@Path("id") id: Int): Response<Result?>
 
-    @GET("character/3")
-    suspend fun getCharacterDetailsTest(): Response<Result>
-
     @GET("location")
     suspend fun getLocations(): Response<RickMortyApiResponse?>
 
     @GET("location/{id}")
-    suspend fun getLocationDetails(@Path("id") id: Int): Response<Result>
+    suspend fun getLocationDetails(@Path("id") id: Int): Response<Result?>
 
 //    @GET("episode")
 //    suspend fun getEpisodes(): List<EpisodeResponce>

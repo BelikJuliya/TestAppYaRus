@@ -22,8 +22,8 @@ class LocationsListAdapter : RecyclerView.Adapter<LocationsListAdapter.Locations
         return LocationsViewHolder(itemView).listen { position ->
             itemView.findNavController()
                 .navigate(
-                    CharacterListFragmentDirections
-                        .actionCharacterListFragmentToCharacterDetailsFragment(
+                    LocationListFragmentDirections
+                        .actionLocationListFragmentToLocationDetailsFragment(
                             locationsList[position].id
                         )
                 )

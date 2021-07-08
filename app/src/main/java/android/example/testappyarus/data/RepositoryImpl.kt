@@ -46,5 +46,9 @@ class RepositoryImpl @Inject constructor(
         }
         return locationsList
     }
+
+    override suspend fun getLocationDetails(id: Int): Result? {
+        return apiService.getLocationDetails(id).body()
+    }
 }
 

@@ -4,6 +4,7 @@ import android.example.testappyarus.presentation.characterFlow.details.Character
 import android.example.testappyarus.presentation.characterFlow.list.CharacterViewModel
 import android.example.testappyarus.presentation.common.ViewModelFactory
 import android.example.testappyarus.presentation.common.ViewModelKey
+import android.example.testappyarus.presentation.locationFlow.details.LocationDetailsViewModel
 import android.example.testappyarus.presentation.locationFlow.list.LocationListViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -30,4 +31,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(LocationListViewModel::class)
     internal abstract fun locationListViewModel(viewModel: LocationListViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(LocationDetailsViewModel::class)
+    internal abstract fun locationDetailsViewModel(viewModel: LocationDetailsViewModel): ViewModel
 }

@@ -4,6 +4,7 @@ import android.app.Application
 import android.example.testappyarus.presentation.characterFlow.details.CharacterDetailsFragment
 import android.example.testappyarus.presentation.characterFlow.list.CharacterListFragment
 import android.example.testappyarus.presentation.common.YarusApp
+import android.example.testappyarus.presentation.locationFlow.details.LocationDetailsFragment
 import android.example.testappyarus.presentation.locationFlow.list.LocationListFragment
 import dagger.BindsInstance
 import dagger.Component
@@ -25,9 +26,11 @@ interface AppComponent : AndroidInjector<YarusApp> {
 
     fun inject(characterListFragment: CharacterListFragment)
 
-    fun inject(characterListFragment: CharacterDetailsFragment)
+    fun inject(characterDetailsFragment: CharacterDetailsFragment)
 
-    fun inject(characterListFragment: LocationListFragment)
+    fun inject(locationsListFragment: LocationListFragment)
+
+    fun inject(locationDetailsFragment: LocationDetailsFragment)
 
     @Component.Builder
     interface Builder {
