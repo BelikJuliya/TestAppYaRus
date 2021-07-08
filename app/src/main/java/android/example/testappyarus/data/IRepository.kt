@@ -6,6 +6,6 @@ import android.example.testappyarus.domain.Character
 interface IRepository {
     suspend fun getCharacterApiCall(): List<Character>
 
-    suspend fun getCharacterDetails(id: Int): ArrayList<Result>
+    suspend fun getCharacterDetails(id: Int): Result?
 
 }

@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">TestAppYaRus</string>
+    <string name="app_name">Rick &amp; Morty</string>
+    <string name="name">Name: </string>
+    <string name="gender">Gender: </string>
+    <string name="location">Location: </string>
+    <string name="origin">Origin: </string>
+    <string name="status">Status: </string>
+    <string name="created">Created: </string>
 </resources>

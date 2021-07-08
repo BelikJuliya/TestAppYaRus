@@ -3,13 +3,13 @@ package android.example.testappyarus.data
 import android.example.testappyarus.data.rest.ApiService
 import android.example.testappyarus.data.rest.Result
 import android.example.testappyarus.domain.Character
-import java.util.*
+import retrofit2.Response
 import javax.inject.Inject
-import kotlin.collections.ArrayList
 
 class RepositoryImpl @Inject constructor(
     private val apiService: ApiService
 ) : IRepository {
+    lateinit var entity: Response<Result>
     override suspend fun getCharacterApiCall(): List<Character> {
         val listCharacters = ArrayList<Character>()
         val response = apiService.getCharacters().body()
@@ -27,13 +27,8 @@ class RepositoryImpl @Inject constructor(
         return listCharacters
     }
 
-    override suspend fun getCharacterDetails(id: Int): ArrayList<Result> {
-        val listCharacterDetails = ArrayList<Result>()
-        val response = apiService.getCharacterDetails(id).body()
-        response?.results?.forEach { result ->
-            listCharacterDetails.add(result)
-        }
-        return listCharacterDetails
+    override suspend fun getCharacterDetails(id: Int): Result? {
+        return apiService.getCharacterDetails(id).body()
     }
 }
 

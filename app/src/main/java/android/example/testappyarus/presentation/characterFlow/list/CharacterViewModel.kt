@@ -10,10 +10,6 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class CharacterViewModel @Inject constructor(private val repository: IRepository) : ViewModel() {
-//    val charactersLiveData: MutableLiveData<List<Character>> by lazy {
-//        MutableLiveData<Character>()
-//    }
-
     val charactersLiveData: MutableLiveData<List<Character>> by lazy {
         MutableLiveData<List<Character>>()
     }
@@ -21,7 +17,6 @@ class CharacterViewModel @Inject constructor(private val repository: IRepository
     fun loadCharacters() {
         viewModelScope.launch(Dispatchers.IO) {
             charactersLiveData.postValue(repository.getCharacterApiCall())
-            println("Bla bla bla")
         }
     }
 }

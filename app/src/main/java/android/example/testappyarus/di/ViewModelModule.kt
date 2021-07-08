@@ -1,5 +1,6 @@
 package android.example.testappyarus.di
 
+import android.example.testappyarus.presentation.characterFlow.details.CharacterDetailsViewModel
 import android.example.testappyarus.presentation.characterFlow.list.CharacterViewModel
 import android.example.testappyarus.presentation.common.ViewModelFactory
 import android.example.testappyarus.presentation.common.ViewModelKey
@@ -17,5 +18,10 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(CharacterViewModel::class)
-    internal abstract fun splashViewModel(viewModel: CharacterViewModel): ViewModel
+    internal abstract fun characterViewModel(viewModel: CharacterViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(CharacterDetailsViewModel::class)
+    internal abstract fun characterDetailsViewModel(viewModel: CharacterDetailsViewModel): ViewModel
 }

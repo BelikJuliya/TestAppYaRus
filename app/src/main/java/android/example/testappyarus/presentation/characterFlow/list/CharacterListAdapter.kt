@@ -7,11 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-class CharacterListAdapter() :
+class CharacterListAdapter :
     RecyclerView.Adapter<CharacterListAdapter.MyViewHolder>() {
     var listCharacters = ArrayList<Character>()
 
@@ -31,7 +32,15 @@ class CharacterListAdapter() :
         val itemView =
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.character_list_item, parent, false)
-        return MyViewHolder(itemView)
+        return MyViewHolder(itemView).listen { position ->
+            itemView.findNavController()
+                .navigate(
+                    CharacterListFragmentDirections
+                        .actionCharacterListFragmentToCharacterDetailsFragment(
+                            listCharacters[position].id
+                        )
+                )
+        }
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
@@ -40,11 +49,17 @@ class CharacterListAdapter() :
         holder.characterAvatarImageView?.let {
             Glide.with(holder.characterAvatarImageView!!).load(listCharacters[position].imageUrl)
                 .apply(RequestOptions.centerCropTransform()).into(
-                it
-            )
+                    it
+                )
         }
-        //holder.characterAvatarImageView?.setImageBitmap(Picasso.with(ap).load(imageUri).into(ivBasicImage);)
     }
 
     override fun getItemCount() = listCharacters.size
+}
+
+fun <T : RecyclerView.ViewHolder> T.listen(event: (position: Int) -> Unit): T {
+    itemView.setOnClickListener {
+        event.invoke(absoluteAdapterPosition)
+    }
+    return this
 }
