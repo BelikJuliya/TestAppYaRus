@@ -2,6 +2,7 @@ package android.example.testappyarus.presentation.locationFlow.details
 
 import android.example.testappyarus.R
 import android.example.testappyarus.data.rest.Result
+import android.example.testappyarus.domain.locations.LocationResult
 import android.example.testappyarus.presentation.characterFlow.details.CharacterDetailsFragmentArgs
 import android.example.testappyarus.presentation.characterFlow.details.CharacterDetailsViewModel
 import android.example.testappyarus.presentation.common.ViewModelFactory
@@ -28,18 +29,16 @@ class LocationDetailsFragment: Fragment() {
     ): View? {
         YarusApp.appComponent.inject(this) //may be it should be better initialized in Main Activity
         val viewModel =
-            ViewModelProvider(this, viewModelFactory)[CharacterDetailsViewModel::class.java]
+            ViewModelProvider(this, viewModelFactory)[LocationDetailsViewModel::class.java]
         val args by navArgs<CharacterDetailsFragmentArgs>()
-        viewModel.loadCharacterDetails(args.characterId) // get from nav args
-        println("onCreateView after loading characters")
-       // val characterDetailsObserver = Observer<Result> { result ->
-//                locationDetailsName.text = result.name
-//                locationDetailsType.text = result.type
-//                locationDetailsDimension.text = result.dimension
+        viewModel.loadLocationDetails(args.characterId) // get from nav args
+        val locationDetailsObserver = Observer<LocationResult> { result ->
+                locationDetailsName.text = result.name
+                locationDetailsType.text = result.type
+                locationDetailsDimension.text = result.dimension
 
-        //}
-       // viewModel.charactersDetailsLiveData.observe(viewLifecycleOwner, characterDetailsObserver)
-        println("observation started")
+        }
+        viewModel.locationsDetailsLiveData.observe(viewLifecycleOwner, locationDetailsObserver)
         return inflater.inflate(R.layout.fragment_location_details, container, false)
     }
 }

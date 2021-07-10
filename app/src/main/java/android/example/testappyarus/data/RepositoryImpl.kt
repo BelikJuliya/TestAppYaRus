@@ -8,6 +8,7 @@ import android.example.testappyarus.domain.characters.CharacterResult
 import android.example.testappyarus.domain.episodes.Episode
 import android.example.testappyarus.domain.episodes.EpisodeResult
 import android.example.testappyarus.domain.locations.Location
+import android.example.testappyarus.domain.locations.LocationResult
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(
@@ -25,7 +26,7 @@ class RepositoryImpl @Inject constructor(
         return apiService.getLocations()?.body()
     }
 
-    override suspend fun getLocationDetails(id: Int): Result? {
+    override suspend fun getLocationDetails(id: Int): LocationResult? {
         return apiService.getLocationDetails(id).body()
     }
 

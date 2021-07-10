@@ -2,7 +2,6 @@ package android.example.testappyarus.presentation.episodesFlow.list
 
 import android.example.testappyarus.R
 import android.example.testappyarus.domain.episodes.Episode
-import android.example.testappyarus.presentation.characterFlow.list.CharacterListFragmentDirections
 import android.example.testappyarus.presentation.characterFlow.list.listen
 import android.view.LayoutInflater
 import android.view.View
