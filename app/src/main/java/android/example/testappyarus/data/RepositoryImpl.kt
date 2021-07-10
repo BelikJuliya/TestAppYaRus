@@ -17,6 +17,7 @@ class RepositoryImpl @Inject constructor(
         val tmp = apiService.getCharacters(page)
 //        val tmp = apiService.getCharacters()
         println("response: " + tmp?.code())
+        println(tmp?.body())
 //        return apiService.getCharacters(page)?.body()
         return tmp?.body()
     }

@@ -18,6 +18,8 @@ class CharacterViewModel @Inject constructor(private val repository: IRepository
         viewModelScope.launch(Dispatchers.IO) {
             val characterResponse = repository.getCharacters(page)
             charactersLiveData.postValue(characterResponse?.toDomainObject())
+            maxPage = characterResponse?.getPage()
         }
     }
+    var maxPage: Int? = 1
 }
