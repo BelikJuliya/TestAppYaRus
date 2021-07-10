@@ -1,8 +1,7 @@
 package android.example.testappyarus.presentation.locationFlow.list
 
 import android.example.testappyarus.R
-import android.example.testappyarus.domain.Location
-import android.example.testappyarus.presentation.characterFlow.list.CharacterListFragmentDirections
+import android.example.testappyarus.domain.locations.Location
 import android.example.testappyarus.presentation.characterFlow.list.listen
 import android.view.LayoutInflater
 import android.view.View

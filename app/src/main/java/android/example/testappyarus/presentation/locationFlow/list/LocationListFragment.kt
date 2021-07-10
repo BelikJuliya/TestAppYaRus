@@ -1,7 +1,7 @@
 package android.example.testappyarus.presentation.locationFlow.list
 
 import android.example.testappyarus.R
-import android.example.testappyarus.domain.Location
+import android.example.testappyarus.domain.locations.Location
 import android.example.testappyarus.presentation.common.ViewModelFactory
 import android.example.testappyarus.presentation.common.YarusApp
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package android.example.testappyarus.domain
+package android.example.testappyarus.domain.locations
 
 data class Location(
     val id: Int,

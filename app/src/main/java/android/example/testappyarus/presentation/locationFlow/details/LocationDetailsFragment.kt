@@ -33,9 +33,9 @@ class LocationDetailsFragment: Fragment() {
         viewModel.loadCharacterDetails(args.characterId) // get from nav args
         println("onCreateView after loading characters")
         val characterDetailsObserver = Observer<Result> { result ->
-                locationDetailsName.text = result.name
-                locationDetailsType.text = result.type
-                locationDetailsDimension.text = result.dimension
+//                locationDetailsName.text = result.name
+//                locationDetailsType.text = result.type
+//                locationDetailsDimension.text = result.dimension
 
         }
         viewModel.charactersDetailsLiveData.observe(viewLifecycleOwner, characterDetailsObserver)

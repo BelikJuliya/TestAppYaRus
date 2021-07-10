@@ -1,7 +1,7 @@
 package android.example.testappyarus.presentation.characterFlow.list
 
 import android.example.testappyarus.R
-import android.example.testappyarus.domain.Character
+import android.example.testappyarus.domain.characters.Character
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

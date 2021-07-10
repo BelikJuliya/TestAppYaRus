@@ -1,7 +1,7 @@
 package android.example.testappyarus.presentation.characterFlow.list
 
 import android.example.testappyarus.data.IRepository
-import android.example.testappyarus.domain.Character
+import android.example.testappyarus.domain.characters.Character
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -17,7 +17,7 @@ class CharacterDetailsViewModel @Inject constructor(private val repository: IRep
 
     fun loadCharacterDetails(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            charactersDetailsLiveData.postValue(repository.getLocationDetails(id))
+            charactersDetailsLiveData.postValue(repository.getCharacterDetails(id))
         }
     }
 }

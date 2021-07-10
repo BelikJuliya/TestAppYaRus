@@ -1,7 +1,7 @@
 package android.example.testappyarus.presentation.locationFlow.list
 
 import android.example.testappyarus.data.IRepository
-import android.example.testappyarus.domain.Location
+import android.example.testappyarus.domain.locations.Location
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

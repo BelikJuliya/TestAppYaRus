@@ -1,5 +1,6 @@
 package android.example.testappyarus.data.rest
 
+import android.example.testappyarus.domain.characters.CharacterResult
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -11,15 +12,18 @@ interface ApiService {
     @GET("character/{id}")
     suspend fun getCharacterDetails(@Path("id") id: Int): Response<Result?>
 
+//    @GET("character/{id}")
+//    suspend fun getCharacterDetails(@Path("id") id: Int): Response<CharacterResult?>
+
     @GET("location")
     suspend fun getLocations(): Response<RickMortyApiResponse?>
 
     @GET("location/{id}")
     suspend fun getLocationDetails(@Path("id") id: Int): Response<Result?>
 
-    @GET("episode")
-    suspend fun getEpisodes(): Response<RickMortyApiResponse?>
-
-    @GET("episode/{id}")
-    suspend fun getEpisodeDetails(@Path("id") id: Int): Response<Result?>
+//    @GET("episode")
+//    suspend fun getEpisodes(): Response<RickMortyApiResponse?>
+//
+//    @GET("episode/{id}")
+//    suspend fun getEpisodeDetails(@Path("id") id: Int): Response<Result?>
 }
