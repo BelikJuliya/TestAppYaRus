@@ -29,9 +29,9 @@ class EpisodesListAdapter : RecyclerView.Adapter<EpisodesListAdapter.EpisodesVie
         return EpisodesListAdapter.EpisodesViewHolder(itemView).listen { position ->
             itemView.findNavController()
                 .navigate(
-                    CharacterListFragmentDirections
-                        .actionCharacterListFragmentToEpisodesListFragment(
-                            //episodesList[position].id
+                    EpisodesListFragmentDirections
+                        .actionEpisodesListFragmentToEpisodeDetailsFragment(
+                            episodesList[position].id
                         )
                 )
         }

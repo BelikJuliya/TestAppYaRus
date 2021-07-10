@@ -5,6 +5,7 @@ import android.example.testappyarus.data.rest.Result
 import android.example.testappyarus.domain.characters.Character
 import android.example.testappyarus.domain.characters.CharacterResult
 import android.example.testappyarus.domain.episodes.Episode
+import android.example.testappyarus.domain.episodes.EpisodeResult
 import android.example.testappyarus.domain.locations.Location
 
 interface IRepository {
@@ -19,5 +20,5 @@ interface IRepository {
 
     suspend fun getEpisodes(): IResponse<List<Episode>>?
 
-//    suspend fun getEpisodeDetails(id: Int): Result?
+    suspend fun getEpisodeDetails(id: Int): EpisodeResult?
 }

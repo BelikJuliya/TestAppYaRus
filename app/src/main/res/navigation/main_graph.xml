@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/characterListFragment"
         android:name="android.example.testappyarus.presentation.characterFlow.list.CharacterListFragment"
-        android:label="CharacterListFragment" >
+        android:label="CharacterListFragment">
         <action
             android:id="@+id/action_characterListFragment_to_characterDetailsFragment"
             app:destination="@id/characterDetailsFragment" />
@@ -21,7 +21,7 @@
     <fragment
         android:id="@+id/characterDetailsFragment"
         android:name="android.example.testappyarus.presentation.characterFlow.details.CharacterDetailsFragment"
-        android:label="CharacterDetailsFragment" >
+        android:label="CharacterDetailsFragment">
         <argument
             android:name="characterId"
             app:argType="integer" />
@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/locationListFragment"
         android:name="android.example.testappyarus.presentation.locationFlow.list.LocationListFragment"
-        android:label="LocationListFragment" >
+        android:label="LocationListFragment">
         <action
             android:id="@+id/action_locationListFragment_to_locationDetailsFragment"
             app:destination="@id/locationDetailsFragment" />
@@ -41,12 +41,24 @@
         android:id="@+id/locationDetailsFragment"
         android:name="android.example.testappyarus.presentation.locationFlow.details.LocationDetailsFragment"
         android:label="LocationDetailsFragment">
-    <argument
-        android:name="characterId"
-        app:argType="integer" />
+        <argument
+            android:name="characterId"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/episodesListFragment"
         android:name="android.example.testappyarus.presentation.episodesFlow.list.EpisodesListFragment"
-        android:label="EpisodesListFragment" />
+        android:label="EpisodesListFragment">
+        <action
+            android:id="@+id/action_episodesListFragment_to_episodeDetailsFragment"
+            app:destination="@id/episodeDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/episodeDetailsFragment"
+        android:name="android.example.testappyarus.presentation.episodesFlow.details.EpisodeDetailsFragment"
+        android:label="EpisodeDetailsFragment">
+        <argument
+            android:name="characterId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

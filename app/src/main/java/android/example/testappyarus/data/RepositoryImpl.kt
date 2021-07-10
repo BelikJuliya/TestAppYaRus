@@ -6,6 +6,7 @@ import android.example.testappyarus.data.rest.Result
 import android.example.testappyarus.domain.characters.Character
 import android.example.testappyarus.domain.characters.CharacterResult
 import android.example.testappyarus.domain.episodes.Episode
+import android.example.testappyarus.domain.episodes.EpisodeResult
 import android.example.testappyarus.domain.locations.Location
 import javax.inject.Inject
 
@@ -32,24 +33,8 @@ class RepositoryImpl @Inject constructor(
         return apiService.getEpisodes()?.body()
     }
 
-//    override suspend fun getEpisodes(): List<Episode> {
-//        val episodes = ArrayList<Episode>()
-////        val response = apiService.getEpisodes().body()
-////        response?.results?.forEach { result ->
-////            episodes.add(
-////                Episode(
-////                    result.id,
-////                    result.name,
-////                    result.airDate,
-////                    result.episode // there is the same field which is List
-////                )
-////            )
-////        }
-//        return episodes
-//    }
-//
-//    override suspend fun getEpisodeDetails(id: Int): Result? {
-//        return apiService.getEpisodeDetails(id).body()
-//    }
+    override suspend fun getEpisodeDetails(id: Int): EpisodeResult? {
+        return apiService.getEpisodeDetails(id).body()
+    }
 }
 
