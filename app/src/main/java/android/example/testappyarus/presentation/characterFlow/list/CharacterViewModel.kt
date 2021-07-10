@@ -16,7 +16,11 @@ class CharacterViewModel @Inject constructor(private val repository: IRepository
 
     fun loadCharacters() {
         viewModelScope.launch(Dispatchers.IO) {
-            charactersLiveData.postValue(repository.getCharacterApiCall())
+            val characterResponse = repository.getCharacters()
+            //charactersLiveData.postValue(characterResponse)
+            //charactersLiveData.postValue(repository.getCharacters())
+            charactersLiveData.postValue(characterResponse?.toDomainObject())
+            println("loading characters competed")
         }
     }
 }

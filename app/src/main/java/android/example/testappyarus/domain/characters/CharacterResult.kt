@@ -1,6 +1,7 @@
 package android.example.testappyarus.domain.characters
 
 import android.example.testappyarus.domain.common.Origin
+import android.example.testappyarus.domain.episodes.Episode
 import android.location.Location
 
 data class CharacterResult(
@@ -13,7 +14,7 @@ data class CharacterResult(
     val origin: Origin,
     val location: Location,
     val image: String,
-    val episode: String,
+    val episode: List<String>,
     val url: String,
     val created: String
 ){

@@ -31,6 +31,7 @@ class CharacterListFragment : Fragment() {
         val viewModel = ViewModelProvider(this, viewModelFactory)[CharacterViewModel::class.java]
         viewModel.loadCharacters()
         val characterObserver = Observer<List<Character>> { characterList ->
+            println("live data updated")
             adapter.listCharacters = characterList as ArrayList<Character>
             adapter.notifyDataSetChanged()
             println("New list set to adapter")
