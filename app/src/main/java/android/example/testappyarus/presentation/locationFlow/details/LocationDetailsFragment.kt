@@ -32,13 +32,13 @@ class LocationDetailsFragment: Fragment() {
         val args by navArgs<CharacterDetailsFragmentArgs>()
         viewModel.loadCharacterDetails(args.characterId) // get from nav args
         println("onCreateView after loading characters")
-        val characterDetailsObserver = Observer<Result> { result ->
+       // val characterDetailsObserver = Observer<Result> { result ->
 //                locationDetailsName.text = result.name
 //                locationDetailsType.text = result.type
 //                locationDetailsDimension.text = result.dimension
 
-        }
-        viewModel.charactersDetailsLiveData.observe(viewLifecycleOwner, characterDetailsObserver)
+        //}
+       // viewModel.charactersDetailsLiveData.observe(viewLifecycleOwner, characterDetailsObserver)
         println("observation started")
         return inflater.inflate(R.layout.fragment_location_details, container, false)
     }

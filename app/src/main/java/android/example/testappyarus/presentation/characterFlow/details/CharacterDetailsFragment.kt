@@ -2,6 +2,7 @@ package android.example.testappyarus.presentation.characterFlow.details
 
 import android.example.testappyarus.R
 import android.example.testappyarus.data.rest.Result
+import android.example.testappyarus.domain.characters.CharacterResult
 import android.example.testappyarus.presentation.common.ViewModelFactory
 import android.example.testappyarus.presentation.common.YarusApp
 import android.os.Bundle
@@ -31,16 +32,15 @@ class CharacterDetailsFragment : Fragment() {
         val args by navArgs<CharacterDetailsFragmentArgs>()
         viewModel.loadCharacterDetails(args.characterId) // get from nav args
         println("onCreateView after loading characters")
-        val characterDetailsObserver = Observer<Result> { result ->
+        val characterDetailsObserver = Observer<CharacterResult> { result ->
             println("Live Data changed")
             println("List is not null")
             if (result != null) {
                 name.text = result.name
                 gender.text = result.gender
                 location.text = result.location.name
-                origin.text = result.origin.name
                 status.text = result.status
-                created.text = result.created
+                species.text = result.species
                 Glide.with(character_big_avatar).load(result.image)
                     .apply(RequestOptions.centerCropTransform())
                     .into(character_big_avatar)

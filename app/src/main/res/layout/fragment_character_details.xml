@@ -67,11 +67,11 @@
         app:layout_constraintTop_toBottomOf="@+id/character_details_gender" />
 
     <TextView
-        android:id="@+id/character_details_origin"
+        android:id="@+id/species"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="@string/origin"
+        android:text="Species: "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.087"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,19 +86,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.087"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/character_details_origin" />
-
-    <TextView
-        android:id="@+id/character_details_created"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/created"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.087"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/character_details_status" />
+        app:layout_constraintTop_toBottomOf="@+id/species" />
 
     <TextView
         android:id="@+id/gender"
@@ -127,13 +115,11 @@
         android:id="@+id/origin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
         android:layout_marginTop="24dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/character_details_origin"
+        app:layout_constraintHorizontal_bias="0.131"
+        app:layout_constraintStart_toEndOf="@+id/species"
         app:layout_constraintTop_toBottomOf="@+id/location" />
 
     <TextView
@@ -147,15 +133,4 @@
         app:layout_constraintStart_toEndOf="@+id/character_details_status"
         app:layout_constraintTop_toBottomOf="@+id/origin" />
 
-    <TextView
-        android:id="@+id/created"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="16dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.132"
-        app:layout_constraintStart_toEndOf="@+id/character_details_created"
-        app:layout_constraintTop_toBottomOf="@+id/status" />
 </androidx.constraintlayout.widget.ConstraintLayout>

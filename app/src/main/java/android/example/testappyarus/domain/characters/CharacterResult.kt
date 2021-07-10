@@ -1,8 +1,7 @@
 package android.example.testappyarus.domain.characters
 
 import android.example.testappyarus.domain.common.Origin
-import android.example.testappyarus.domain.episodes.Episode
-import android.location.Location
+import android.example.testappyarus.domain.locations.Location
 
 data class CharacterResult(
     val id: Int,
@@ -17,6 +16,4 @@ data class CharacterResult(
     val episode: List<String>,
     val url: String,
     val created: String
-){
-
-}
+)

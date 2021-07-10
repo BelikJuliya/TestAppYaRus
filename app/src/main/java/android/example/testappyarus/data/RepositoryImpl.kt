@@ -4,6 +4,7 @@ import android.example.testappyarus.data.rest.ApiService
 import android.example.testappyarus.data.rest.IResponse
 import android.example.testappyarus.data.rest.Result
 import android.example.testappyarus.domain.characters.Character
+import android.example.testappyarus.domain.characters.CharacterResult
 import android.example.testappyarus.domain.episodes.Episode
 import android.example.testappyarus.domain.locations.Location
 import javax.inject.Inject
@@ -15,26 +16,9 @@ class RepositoryImpl @Inject constructor(
         val response = apiService.getCharacters()?.body()
         println("response received " + response?.results?.size)
         return response
-
     }
-//    override suspend fun getCharacterApiCall(): List<Character> {
-//        val listCharacters = ArrayList<Character>()
-//        val response = apiService.getCharacters().body()
-//        response?.results?.forEach { result ->
-//            listCharacters.add(
-//                Character(
-//                    result.name,
-//                    result.species,
-//                    result.image,
-//                    result.id
-//                )
-//            )
-//        }
-//        println("List characters loaded")
-//        return listCharacters
-//    }
 
-    override suspend fun getCharacterDetails(id: Int): Result? {
+    override suspend fun getCharacterDetails(id: Int): CharacterResult? {
         return apiService.getCharacterDetails(id).body()
     }
 

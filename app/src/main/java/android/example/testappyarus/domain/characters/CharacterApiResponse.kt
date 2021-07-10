@@ -16,6 +16,7 @@ data class CharacterApiResponse(
                 characterResult.status,
                 characterResult.gender,
                 characterResult.image,
+                characterResult.location
             )
         }
     }

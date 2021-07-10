@@ -18,7 +18,10 @@ interface ApiService {
     suspend fun getCharacters(): Response<CharacterApiResponse>?
 
     @GET("character/{id}")
-    suspend fun getCharacterDetails(@Path("id") id: Int): Response<Result?>
+    suspend fun getCharacterDetails(@Path("id") id: Int): Response<CharacterResult>
+
+//    @GET("character/{id}")
+//    suspend fun getCharacterDetails(@Path("id") id: Int): Response<Result?>
 
 //    @GET("character/{id}")
 //    suspend fun getCharacterDetails(@Path("id") id: Int): Response<CharacterResult?>

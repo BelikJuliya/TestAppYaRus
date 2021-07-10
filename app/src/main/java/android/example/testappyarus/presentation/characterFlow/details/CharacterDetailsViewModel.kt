@@ -1,7 +1,7 @@
 package android.example.testappyarus.presentation.characterFlow.details
 
 import android.example.testappyarus.data.IRepository
-import android.example.testappyarus.data.rest.Result
+import android.example.testappyarus.domain.characters.CharacterResult
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -11,8 +11,8 @@ import javax.inject.Inject
 
 class CharacterDetailsViewModel @Inject constructor(private val repository: IRepository) :
     ViewModel() {
-    val charactersDetailsLiveData: MutableLiveData<Result> by lazy {
-        MutableLiveData<Result>()
+    val charactersDetailsLiveData: MutableLiveData<CharacterResult> by lazy {
+        MutableLiveData<CharacterResult>()
     }
 
     fun loadCharacterDetails(id: Int) {
