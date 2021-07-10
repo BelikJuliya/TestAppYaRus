@@ -17,4 +17,6 @@ data class LocationResponse(
             )
         }
     }
+
+    override fun getPage() = info.pages
 }

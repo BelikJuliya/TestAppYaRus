@@ -17,4 +17,6 @@ data class EpisodeResponse(
             )
         }
     }
+
+    override fun getPage() = info.pages
 }

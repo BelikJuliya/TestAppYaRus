@@ -20,4 +20,6 @@ data class CharacterResponse(
             )
         }
     }
+
+    override fun getPage() = info.pages
 }

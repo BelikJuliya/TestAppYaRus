@@ -1,7 +1,6 @@
 package android.example.testappyarus.presentation.locationFlow.details
 
 import android.example.testappyarus.data.IRepository
-import android.example.testappyarus.data.rest.Result
 import android.example.testappyarus.domain.locations.LocationResult
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

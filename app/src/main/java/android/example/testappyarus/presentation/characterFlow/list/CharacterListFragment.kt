@@ -21,29 +21,57 @@ class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
     private val adapter = CharacterListAdapter()
+    private var loading = true
+    private var pastVisiblesItems = 0
+    private var visibleItemCount: Int = 0
+    private var totalItemCount: Int = 0
+    private lateinit var viewModel: CharacterViewModel
+    private var currentPage: Int = 2
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
         YarusApp.appComponent.inject(this) //may be it should be better initialized in Main Activity
-        val viewModel = ViewModelProvider(this, viewModelFactory)[CharacterViewModel::class.java]
-        viewModel.loadCharacters()
+        viewModel = ViewModelProvider(this, viewModelFactory)[CharacterViewModel::class.java]
+        viewModel.loadCharacters(currentPage)
         val characterObserver = Observer<List<Character>> { characterList ->
-            adapter.listCharacters = characterList as ArrayList<Character>
-            adapter.notifyDataSetChanged()
+            if (characterList != null) {
+                adapter.listCharacters = characterList as ArrayList<Character>
+                adapter.notifyDataSetChanged()
+            }
         }
         viewModel.charactersLiveData.observe(viewLifecycleOwner, characterObserver)
 
         characterSwipeToRefresh.setOnRefreshListener {
-            viewModel.loadCharacters()
+            viewModel.loadCharacters(currentPage)
             characterSwipeToRefresh.isRefreshing = false
         }
     }
 
     private fun initRecyclerView() {
-        val recyclerView: RecyclerView? = view?.findViewById(R.id.character_recycler_view)
-        recyclerView?.layoutManager = LinearLayoutManager(activity)
-        recyclerView?.setHasFixedSize(true)
-        recyclerView?.adapter = adapter
+        val layoutManager = LinearLayoutManager(activity)
+        characterRecyclerView.layoutManager = layoutManager
+        characterRecyclerView.setHasFixedSize(true)
+        characterRecyclerView.adapter = adapter
+
+        characterRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                if (dy > 0) { //check for scroll down
+                    visibleItemCount = layoutManager.childCount
+                    totalItemCount = layoutManager.itemCount
+                    pastVisiblesItems = layoutManager.findFirstVisibleItemPosition()
+                    if (loading) {
+                        if (visibleItemCount + pastVisiblesItems >= totalItemCount) {
+                            loading = false
+                            println("fetch new data")
+                            currentPage++
+                            if (currentPage <= 671) viewModel.loadCharacters(currentPage)
+                            // Do pagination.. i.e. fetch new data
+                            loading = true
+                        }
+                    }
+                }
+            }
+        })
     }
 }

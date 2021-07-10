@@ -14,13 +14,10 @@ class CharacterViewModel @Inject constructor(private val repository: IRepository
         MutableLiveData<List<Character>>()
     }
 
-    fun loadCharacters() {
+    fun loadCharacters(page: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            val characterResponse = repository.getCharacters()
-            //charactersLiveData.postValue(characterResponse)
-            //charactersLiveData.postValue(repository.getCharacters())
+            val characterResponse = repository.getCharacters(page)
             charactersLiveData.postValue(characterResponse?.toDomainObject())
-            println("loading characters competed")
         }
     }
 }

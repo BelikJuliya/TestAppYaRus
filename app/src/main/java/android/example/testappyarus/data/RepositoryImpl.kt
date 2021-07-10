@@ -2,7 +2,6 @@ package android.example.testappyarus.data
 
 import android.example.testappyarus.data.rest.ApiService
 import android.example.testappyarus.data.rest.IResponse
-import android.example.testappyarus.data.rest.Result
 import android.example.testappyarus.domain.characters.Character
 import android.example.testappyarus.domain.characters.CharacterResult
 import android.example.testappyarus.domain.episodes.Episode
@@ -14,8 +13,12 @@ import javax.inject.Inject
 class RepositoryImpl @Inject constructor(
     private val apiService: ApiService
 ) : IRepository {
-    override suspend fun getCharacters(): IResponse<List<Character>>? {
-        return apiService.getCharacters()?.body()
+    override suspend fun getCharacters(page: Int): IResponse<List<Character>>? {
+        val tmp = apiService.getCharacters(page)
+//        val tmp = apiService.getCharacters()
+        println("response: " + tmp?.code())
+//        return apiService.getCharacters(page)?.body()
+        return tmp?.body()
     }
 
     override suspend fun getCharacterDetails(id: Int): CharacterResult? {

@@ -1,8 +1,6 @@
 package android.example.testappyarus.data.rest
 
-data class RickMortyApiResponse(
+data class ApiResponse<T>(
     val info: InfoX,
-    val results: List<Result>
-){
-
-}
+    val results: List<T>
+)
