@@ -10,10 +10,12 @@ data class CharacterApiResponse(
     override fun toDomainObject(): List<Character> {
         return results.map { characterResult ->
             Character(
+                characterResult.id,
                 characterResult.name,
                 characterResult.species,
+                characterResult.status,
+                characterResult.gender,
                 characterResult.image,
-                characterResult.id
             )
         }
     }

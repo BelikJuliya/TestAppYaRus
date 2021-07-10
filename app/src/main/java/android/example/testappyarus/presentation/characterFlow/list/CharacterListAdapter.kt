@@ -11,21 +11,18 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import kotlinx.android.synthetic.main.character_list_item.view.*
 
 class CharacterListAdapter :
     RecyclerView.Adapter<CharacterListAdapter.MyViewHolder>() {
     var listCharacters = ArrayList<Character>()
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var characterNameTextView: TextView? = null
-        var characterSpeciesTextView: TextView? = null
-        var characterAvatarImageView: ImageView? = null
-
-        init {
-            characterNameTextView = itemView.findViewById(R.id.character_name)
-            characterSpeciesTextView = itemView.findViewById(R.id.character_species)
-            characterAvatarImageView = itemView.findViewById(R.id.character_avatar)
-        }
+        var characterNameTextView: TextView = itemView.characterName
+        var characterSpeciesTextView: TextView = itemView.characterSpecies
+        var characterStatus: TextView = itemView.characterStatus
+        val characterGender: TextView = itemView.characterGender
+        var characterAvatarImageView: ImageView = itemView.character_avatar
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -44,10 +41,12 @@ class CharacterListAdapter :
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.characterNameTextView?.text = listCharacters[position].name
-        holder.characterSpeciesTextView?.text = listCharacters[position].species
-        holder.characterAvatarImageView?.let {
-            Glide.with(holder.characterAvatarImageView!!).load(listCharacters[position].imageUrl)
+        holder.characterNameTextView.text = listCharacters[position].name
+        holder.characterSpeciesTextView.text = listCharacters[position].species
+        holder.characterStatus.text = listCharacters[position].status
+        holder.characterGender.text = listCharacters[position].gender
+        holder.characterAvatarImageView.let {
+            Glide.with(holder.characterAvatarImageView).load(listCharacters[position].imageUrl)
                 .apply(RequestOptions.centerCropTransform()).into(
                     it
                 )
