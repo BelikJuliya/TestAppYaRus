@@ -5,6 +5,5 @@ data class Episode(
     val name: String,
     var airDate: String,
     var episode: String,
-    var url: String
-    ) {
-}
+//    var url: String
+    )

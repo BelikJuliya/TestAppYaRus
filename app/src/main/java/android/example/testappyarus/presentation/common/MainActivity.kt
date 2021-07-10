@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.episodes -> {
-                    println("episodes")
+                    navController.navigate(R.id.episodesListFragment)
                     true
                 }
                 else -> false

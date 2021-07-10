@@ -5,6 +5,7 @@ import android.example.testappyarus.data.rest.IResponse
 import android.example.testappyarus.data.rest.Result
 import android.example.testappyarus.domain.characters.Character
 import android.example.testappyarus.domain.characters.CharacterResult
+import android.example.testappyarus.domain.episodes.Episode
 import android.example.testappyarus.domain.locations.Location
 import javax.inject.Inject
 
@@ -25,6 +26,10 @@ class RepositoryImpl @Inject constructor(
 
     override suspend fun getLocationDetails(id: Int): Result? {
         return apiService.getLocationDetails(id).body()
+    }
+
+    override suspend fun getEpisodes(): IResponse<List<Episode>>? {
+        return apiService.getEpisodes()?.body()
     }
 
 //    override suspend fun getEpisodes(): List<Episode> {

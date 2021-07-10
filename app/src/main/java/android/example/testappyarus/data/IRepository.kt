@@ -13,13 +13,11 @@ interface IRepository {
 
     suspend fun getCharacterDetails(id: Int): CharacterResult?
 
-//    suspend fun getLocations(): List<Location>
-
     suspend fun getLocations(): IResponse<List<Location>>?
 
-    suspend fun getLocationDetails(id: Int): Result?
+    suspend fun getLocationDetails(id: Int): Result? // to implement
 
-//    suspend fun getEpisodes(): List<Episode>
-//
+    suspend fun getEpisodes(): IResponse<List<Episode>>?
+
 //    suspend fun getEpisodeDetails(id: Int): Result?
 }

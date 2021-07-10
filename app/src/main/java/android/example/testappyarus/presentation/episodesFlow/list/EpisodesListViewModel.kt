@@ -10,13 +10,13 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class EpisodesListViewModel @Inject constructor(private val repository: IRepository) : ViewModel() {
-//    val episodesListLiveData: MutableLiveData<List<Episode>> by lazy {
-//        MutableLiveData<List<Episode>>()
-//    }
+    val episodesListLiveData: MutableLiveData<List<Episode>> by lazy {
+        MutableLiveData<List<Episode>>()
+    }
 
-//    fun loadEpisodes() {
-//        viewModelScope.launch(Dispatchers.IO) {
-//            episodesListLiveData.postValue(repository.getEpisodes())
-//        }
-//    }
+    fun loadEpisodes() {
+        viewModelScope.launch(Dispatchers.IO) {
+            episodesListLiveData.postValue(repository.getEpisodes()?.toDomainObject())
+        }
+    }
 }
