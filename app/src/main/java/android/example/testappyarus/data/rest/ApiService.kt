@@ -17,6 +17,9 @@ interface ApiService {
     @GET("location/{id}")
     suspend fun getLocationDetails(@Path("id") id: Int): Response<Result?>
 
-//    @GET("episode")
-//    suspend fun getEpisodes(): List<EpisodeResponce>
+    @GET("episode")
+    suspend fun getEpisodes(): Response<RickMortyApiResponse?>
+
+    @GET("episode/{id}")
+    suspend fun getEpisodeDetails(@Path("id") id: Int): Response<Result?>
 }

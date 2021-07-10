@@ -3,8 +3,8 @@ package android.example.testappyarus.data
 import android.example.testappyarus.data.rest.ApiService
 import android.example.testappyarus.data.rest.Result
 import android.example.testappyarus.domain.Character
+import android.example.testappyarus.domain.Episode
 import android.example.testappyarus.domain.Location
-import retrofit2.Response
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(
@@ -37,11 +37,11 @@ class RepositoryImpl @Inject constructor(
         response?.results?.forEach { result ->
             locationsList.add(
                 Location(
-                result.id,
-                result.name,
-                result.type,
-                result.created
-            )
+                    result.id,
+                    result.name,
+                    result.type,
+                    result.created
+                )
             )
         }
         return locationsList
@@ -49,6 +49,26 @@ class RepositoryImpl @Inject constructor(
 
     override suspend fun getLocationDetails(id: Int): Result? {
         return apiService.getLocationDetails(id).body()
+    }
+
+    override suspend fun getEpisodes(): List<Episode> {
+        val episodes = ArrayList<Episode>()
+        val response = apiService.getEpisodes().body()
+        response?.results?.forEach { result ->
+            episodes.add(
+                Episode(
+                    result.id,
+                    result.name,
+                    result.airDate,
+                    result.episode // there is the same field which is List
+                )
+            )
+        }
+        return episodes
+    }
+
+    override suspend fun getEpisodeDetails(id: Int): Result? {
+        return apiService.getEpisodeDetails(id).body()
     }
 }
 

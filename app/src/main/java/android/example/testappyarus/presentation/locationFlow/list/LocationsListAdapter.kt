@@ -7,6 +7,7 @@ import android.example.testappyarus.presentation.characterFlow.list.listen
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.locations_list_item.view.*
@@ -31,17 +32,17 @@ class LocationsListAdapter : RecyclerView.Adapter<LocationsListAdapter.Locations
     }
 
     override fun onBindViewHolder(holder: LocationsViewHolder, position: Int) {
-        holder.locationNameTextView?.text = locationsList[position].name
-        holder.locationTypeTextView?.text = locationsList[position].type
-        holder.locationDateTextView?.text = locationsList[position].created
+        holder.locationNameTextView.text = locationsList[position].name
+        holder.locationTypeTextView.text = locationsList[position].type
+        holder.locationDateTextView.text = locationsList[position].created
     }
 
     override fun getItemCount() = locationsList.size
 
     class LocationsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var locationNameTextView = itemView.location_name
-        var locationTypeTextView = itemView.location_type
-        var locationDateTextView = itemView.location_created
+        var locationNameTextView: TextView = itemView.location_name
+        var locationTypeTextView: TextView = itemView.location_type
+        var locationDateTextView: TextView = itemView.location_created
     }
 }
 

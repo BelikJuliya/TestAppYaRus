@@ -1,4 +1,9 @@
 package android.example.testappyarus.domain
 
-class Episode {
+data class Episode(
+    var id: Int,
+    val name: String,
+    var airDate: String,
+    var episode: String,
+    ) {
 }

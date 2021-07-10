@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_characterListFragment_to_locationListFragment"
             app:destination="@id/locationListFragment" />
+        <action
+            android:id="@+id/action_characterListFragment_to_episodesListFragment"
+            app:destination="@id/episodesListFragment" />
     </fragment>
     <fragment
         android:id="@+id/characterDetailsFragment"
@@ -30,6 +33,9 @@
         <action
             android:id="@+id/action_locationListFragment_to_locationDetailsFragment"
             app:destination="@id/locationDetailsFragment" />
+        <action
+            android:id="@+id/action_locationListFragment_to_episodesListFragment"
+            app:destination="@id/episodesListFragment" />
     </fragment>
     <fragment
         android:id="@+id/locationDetailsFragment"
@@ -39,4 +45,8 @@
         android:name="characterId"
         app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/episodesListFragment"
+        android:name="android.example.testappyarus.presentation.episodesFlow.list.EpisodesListFragment"
+        android:label="EpisodesListFragment" />
 </navigation>

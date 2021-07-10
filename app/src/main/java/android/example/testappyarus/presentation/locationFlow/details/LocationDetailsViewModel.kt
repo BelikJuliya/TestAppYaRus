@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class LocationDetailsViewModel @Inject constructor(private val repository: IRepository): ViewModel() {
-    val locationsDetailsLiveData: MutableLiveData<Result> by lazy {
+    private val locationsDetailsLiveData: MutableLiveData<Result> by lazy {
         MutableLiveData<Result>()
     }
 
