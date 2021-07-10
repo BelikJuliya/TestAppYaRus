@@ -16,14 +16,11 @@ interface ApiService {
     @GET("character")
     suspend fun getCharacters(@Query("page") page: Int): Response<CharacterResponse>
 
-//    @GET("character/?page=2")
-//    suspend fun getCharacters(): Response<CharacterResponse>?
-
     @GET("character/{id}")
     suspend fun getCharacterDetails(@Path("id") id: Int): Response<CharacterResult>
 
     @GET("location")
-    suspend fun getLocations(): Response<LocationResponse>?
+    suspend fun getLocations(@Query("page") page: Int): Response<LocationResponse>?
 
     @GET("location/{id}")
     suspend fun getLocationDetails(@Path("id") id: Int): Response<LocationResult>

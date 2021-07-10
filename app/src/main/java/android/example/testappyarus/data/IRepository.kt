@@ -14,7 +14,7 @@ interface IRepository {
 
     suspend fun getCharacterDetails(id: Int): CharacterResult?
 
-    suspend fun getLocations(): IResponse<List<Location>>?
+    suspend fun getLocations(page: Int): IResponse<List<Location>>?
 
     suspend fun getLocationDetails(id: Int): LocationResult?
 

@@ -25,8 +25,7 @@ class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
     lateinit var viewModelFactory: ViewModelFactory
     private val adapter = CharacterListAdapter()
     private lateinit var viewModel: CharacterViewModel
-    private var currentPage: Int = 2
-   // private var scrollListener: EndlessRecyclerViewScrollListener? = null
+    private var currentPage: Int = 1 // make it constant
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -56,7 +55,7 @@ class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
         setPagination(layoutManager)
     }
 
-    private fun setPagination(layoutManager: LinearLayoutManager) {
+    private fun setPagination(layoutManager: LinearLayoutManager) { // may be move it to application class
         val scrollListener = object : EndlessRecyclerViewScrollListener(layoutManager) {
             override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView?) {
                 viewModel.loadCharacters(++currentPage)

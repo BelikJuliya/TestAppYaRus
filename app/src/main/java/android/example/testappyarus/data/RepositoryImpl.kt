@@ -19,15 +19,15 @@ class RepositoryImpl @Inject constructor(
         println("response: " + tmp?.code())
         println(tmp?.body())
 //        return apiService.getCharacters(page)?.body()
-        return tmp?.body()
+        return tmp.body()
     }
 
     override suspend fun getCharacterDetails(id: Int): CharacterResult? {
         return apiService.getCharacterDetails(id).body()
     }
 
-    override suspend fun getLocations(): IResponse<List<Location>>? {
-        return apiService.getLocations()?.body()
+    override suspend fun getLocations(page: Int): IResponse<List<Location>>? {
+        return apiService.getLocations(page)?.body()
     }
 
     override suspend fun getLocationDetails(id: Int): LocationResult? {

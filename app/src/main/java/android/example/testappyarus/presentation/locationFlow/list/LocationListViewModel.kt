@@ -14,9 +14,9 @@ class LocationListViewModel @Inject constructor(private val repository: IReposit
         MutableLiveData<List<Location>>()
     }
 
-    fun loadLocations() {
+    fun loadLocations(page: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            locationsListLiveData.postValue(repository.getLocations()?.toDomainObject())
+            locationsListLiveData.postValue(repository.getLocations(page)?.toDomainObject())
         }
     }
 }
