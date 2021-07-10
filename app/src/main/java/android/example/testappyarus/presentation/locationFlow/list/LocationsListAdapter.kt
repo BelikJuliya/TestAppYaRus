@@ -33,7 +33,7 @@ class LocationsListAdapter : RecyclerView.Adapter<LocationsListAdapter.Locations
     override fun onBindViewHolder(holder: LocationsViewHolder, position: Int) {
         holder.locationNameTextView.text = locationsList[position].name
         holder.locationTypeTextView.text = locationsList[position].type
-        holder.locationDateTextView.text = locationsList[position].created
+        holder.locationDimensionTextView.text = locationsList[position].dimension
     }
 
     override fun getItemCount() = locationsList.size
@@ -41,7 +41,7 @@ class LocationsListAdapter : RecyclerView.Adapter<LocationsListAdapter.Locations
     class LocationsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var locationNameTextView: TextView = itemView.location_name
         var locationTypeTextView: TextView = itemView.location_type
-        var locationDateTextView: TextView = itemView.location_created
+        var locationDimensionTextView: TextView = itemView.locationDimension
     }
 }
 

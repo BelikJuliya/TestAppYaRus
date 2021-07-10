@@ -25,10 +25,7 @@ class LocationListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_locations_list, container, false)
-
-        return view
-       //return super.onCreateView(inflater, container, savedInstanceState)
+        return inflater.inflate(R.layout.fragment_locations_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,7 +45,6 @@ class LocationListFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        //val recyclerView = locations_recycler_view
         locationsRecyclerView.layoutManager = LinearLayoutManager(activity)
         locationsRecyclerView.setHasFixedSize(true)
         locationsRecyclerView.adapter = adapter

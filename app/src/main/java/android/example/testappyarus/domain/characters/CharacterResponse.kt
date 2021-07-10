@@ -3,7 +3,7 @@ package android.example.testappyarus.domain.characters
 import android.example.testappyarus.data.rest.IResponse
 import android.example.testappyarus.data.rest.InfoX
 
-data class CharacterApiResponse(
+data class CharacterResponse(
     val info: InfoX,
     val results: List<CharacterResult>
 ) : IResponse<List<Character>> {

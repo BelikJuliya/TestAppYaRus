@@ -5,7 +5,6 @@ import android.example.testappyarus.data.rest.IResponse
 import android.example.testappyarus.data.rest.Result
 import android.example.testappyarus.domain.characters.Character
 import android.example.testappyarus.domain.characters.CharacterResult
-import android.example.testappyarus.domain.episodes.Episode
 import android.example.testappyarus.domain.locations.Location
 import javax.inject.Inject
 
@@ -13,29 +12,15 @@ class RepositoryImpl @Inject constructor(
     private val apiService: ApiService
 ) : IRepository {
     override suspend fun getCharacters(): IResponse<List<Character>>? {
-        val response = apiService.getCharacters()?.body()
-        println("response received " + response?.results?.size)
-        return response
+        return apiService.getCharacters()?.body()
     }
 
     override suspend fun getCharacterDetails(id: Int): CharacterResult? {
         return apiService.getCharacterDetails(id).body()
     }
 
-    override suspend fun getLocations(): List<Location> {
-        val locationsList = ArrayList<Location>()
-        val response = apiService.getLocations().body()
-        response?.results?.forEach { result ->
-            locationsList.add(
-                Location(
-                    result.id,
-                    result.name,
-                    result.type,
-                    result.created
-                )
-            )
-        }
-        return locationsList
+    override suspend fun getLocations(): IResponse<List<Location>>? {
+        return apiService.getLocations()?.body()
     }
 
     override suspend fun getLocationDetails(id: Int): Result? {

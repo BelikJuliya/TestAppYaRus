@@ -9,16 +9,13 @@ import android.example.testappyarus.domain.locations.Location
 
 interface IRepository {
 
-//    suspend fun getCharacterApiCall(): List<Character>
-
     suspend fun getCharacters(): IResponse<List<Character>>?
-
-//    suspend fun getCharacterDetails(id: Int): Result?
 
     suspend fun getCharacterDetails(id: Int): CharacterResult?
 
+//    suspend fun getLocations(): List<Location>
 
-    suspend fun getLocations(): List<Location>
+    suspend fun getLocations(): IResponse<List<Location>>?
 
     suspend fun getLocationDetails(id: Int): Result?
 

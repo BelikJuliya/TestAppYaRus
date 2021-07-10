@@ -1,7 +1,6 @@
 package android.example.testappyarus.presentation.characterFlow.details
 
 import android.example.testappyarus.R
-import android.example.testappyarus.data.rest.Result
 import android.example.testappyarus.domain.characters.CharacterResult
 import android.example.testappyarus.presentation.common.ViewModelFactory
 import android.example.testappyarus.presentation.common.YarusApp

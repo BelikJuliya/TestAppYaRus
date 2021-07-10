@@ -5,7 +5,7 @@ data class LocationResult(
     val name: String,
     val type: String,
     val dimension: String,
-    val residents: String,
+    val residents: List<String>,
     val url: String,
     val created: String
 )
