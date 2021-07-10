@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/locationsSwipeToRefresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -16,4 +17,4 @@
         tools:context=".presentation.characterFlow.list.CharacterListFragment"
         tools:listitem="@layout/locations_list_item" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

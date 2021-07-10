@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.fragment_character_list.*
 import javax.inject.Inject
 
 /**
@@ -32,6 +33,11 @@ class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
             adapter.notifyDataSetChanged()
         }
         viewModel.charactersLiveData.observe(viewLifecycleOwner, characterObserver)
+
+        characterSwipeToRefresh.setOnRefreshListener {
+            viewModel.loadCharacters()
+            characterSwipeToRefresh.isRefreshing = false
+        }
     }
 
     private fun initRecyclerView() {

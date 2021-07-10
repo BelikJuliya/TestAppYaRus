@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.fragment_character_list.*
 import kotlinx.android.synthetic.main.fragment_locations_list.*
 import javax.inject.Inject
 
@@ -31,6 +32,11 @@ class LocationListFragment : Fragment(R.layout.fragment_locations_list) {
             adapter.notifyDataSetChanged()
         }
         viewModel.locationsListLiveData.observe(viewLifecycleOwner, locationsObserver)
+
+        locationsSwipeToRefresh.setOnRefreshListener {
+            viewModel.loadLocations()
+            locationsSwipeToRefresh.isRefreshing = false
+        }
     }
 
     private fun initRecyclerView() {

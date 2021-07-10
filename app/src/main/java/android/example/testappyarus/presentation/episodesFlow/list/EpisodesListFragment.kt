@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.fragment_character_list.*
 import kotlinx.android.synthetic.main.fragment_episodes_list.*
 import javax.inject.Inject
 
@@ -29,9 +30,13 @@ class EpisodesListFragment : Fragment(R.layout.fragment_episodes_list) {
         val episodesObserver = Observer<List<Episode>> { episode ->
             adapter.episodesList = episode as ArrayList<Episode>
             adapter.notifyDataSetChanged()
-            println("New list set to adapter")
         }
         viewModel.episodesListLiveData.observe(viewLifecycleOwner, episodesObserver)
+
+        episodesSwipeToRefresh.setOnRefreshListener {
+            viewModel.loadEpisodes()
+            episodesSwipeToRefresh.isRefreshing = false
+        }
     }
 
     private fun initRecyclerView() {
