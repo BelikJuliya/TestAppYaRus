@@ -10,6 +10,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class CharacterViewModel @Inject constructor(private val repository: IRepository) : ViewModel() {
+    var maxPage: Int? = 1
     val charactersLiveData: MutableLiveData<List<Character>> by lazy {
         MutableLiveData<List<Character>>()
     }
@@ -21,5 +22,4 @@ class CharacterViewModel @Inject constructor(private val repository: IRepository
             maxPage = characterResponse?.getPage()
         }
     }
-    var maxPage: Int? = 1
 }

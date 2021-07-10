@@ -19,32 +19,23 @@ import javax.inject.Inject
 /**
  * A fragment representing a list of characters.
  */
+// TODO get max page only once and implement internet connection check
 class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
     private val adapter = CharacterListAdapter()
-    private var loading = true
-    private var pastVisiblesItems = 0
-    private var visibleItemCount: Int = 0
-    private var totalItemCount: Int = 0
     private lateinit var viewModel: CharacterViewModel
     private var currentPage: Int = 2
-    private var scrollListener: EndlessRecyclerViewScrollListener? = null
+   // private var scrollListener: EndlessRecyclerViewScrollListener? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //initRecyclerView()
-        val layoutManager = LinearLayoutManager(activity)
-        characterRecyclerView.layoutManager = layoutManager
-        characterRecyclerView.setHasFixedSize(true)
-        characterRecyclerView.adapter = adapter
-
+        initRecyclerView()
         YarusApp.appComponent.inject(this) //may be it should be better initialized in Main Activity
         viewModel = ViewModelProvider(this, viewModelFactory)[CharacterViewModel::class.java]
         viewModel.loadCharacters(currentPage)
         val characterObserver = Observer<List<Character>> { characterList ->
             if (characterList != null) {
-//                adapter.listCharacters = characterList as ArrayList<Character>
                 adapter.listCharacters.addAll(characterList)
                 adapter.notifyDataSetChanged()
             }
@@ -55,15 +46,6 @@ class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
             viewModel.loadCharacters(currentPage)
             characterSwipeToRefresh.isRefreshing = false
         }
-
-
-
-        scrollListener = object : EndlessRecyclerViewScrollListener(layoutManager) {
-            override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView?) {
-                viewModel.loadCharacters(++currentPage)
-            }
-        }
-        characterRecyclerView.addOnScrollListener(scrollListener as EndlessRecyclerViewScrollListener)
     }
 
     private fun initRecyclerView() {
@@ -71,28 +53,16 @@ class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
         characterRecyclerView.layoutManager = layoutManager
         characterRecyclerView.setHasFixedSize(true)
         characterRecyclerView.adapter = adapter
+        setPagination(layoutManager)
+    }
 
-
-//        characterRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-//            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-//                if (dy > 0) { //check for scroll down
-//                    visibleItemCount = layoutManager.childCount
-//                    totalItemCount = layoutManager.itemCount
-//                    pastVisiblesItems = layoutManager.findFirstVisibleItemPosition()
-//                    if (loading) {
-//                        if (visibleItemCount + pastVisiblesItems >= totalItemCount) {
-//                            loading = false
-//                            println("fetch new data")
-//                            currentPage++
-//                            if (currentPage <= viewModel.maxPage!!){
-//                                viewModel.loadCharacters(currentPage)
-//                            }
-//                            // Do pagination.. i.e. fetch new data
-//                            loading = true
-//                        }
-//                    }
-//                }
-//            }
-//        })
+    private fun setPagination(layoutManager: LinearLayoutManager) {
+        val scrollListener = object : EndlessRecyclerViewScrollListener(layoutManager) {
+            override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView?) {
+                viewModel.loadCharacters(++currentPage)
+            }
+        }
+        characterRecyclerView.addOnScrollListener(scrollListener as EndlessRecyclerViewScrollListener)
     }
 }
+
