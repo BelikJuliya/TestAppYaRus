@@ -20,11 +20,11 @@ class EpisodeDetailsFragment : Fragment(R.layout.fragment_episode_details) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        YarusApp.appComponent.inject(this) //may be it should be better initialized in Main Activity
+        YarusApp.appComponent.inject(this)
         val viewModel =
             ViewModelProvider(this, viewModelFactory)[EpisodeDetailsViewModel::class.java]
         val args by navArgs<CharacterDetailsFragmentArgs>()
-        viewModel.loadEpisodeDetails(args.characterId) // get from nav args
+        viewModel.loadEpisodeDetails(args.characterId)
         println("onCreateView after loading characters")
         val characterDetailsObserver = Observer<EpisodeResult> { result ->
             println("Live Data changed")

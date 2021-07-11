@@ -2,7 +2,7 @@ package android.example.testappyarus.presentation.characterFlow.list
 
 import android.example.testappyarus.R
 import android.example.testappyarus.domain.characters.Character
-import android.example.testappyarus.presentation.common.EndlessRecyclerViewScrollListener
+import android.example.testappyarus.presentation.common.CustomRecyclerViewScrollListener
 import android.example.testappyarus.presentation.common.ViewModelFactory
 import android.example.testappyarus.presentation.common.YarusApp
 import android.os.Bundle
@@ -25,10 +25,8 @@ class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
     lateinit var viewModelFactory: ViewModelFactory
     @Inject
     lateinit var adapter: CharacterListAdapter
-    //private val adapter = CharacterListAdapter()
     private lateinit var viewModel: CharacterViewModel
-    private var currentPage: Int = 1 // make it constant
-    private var maxPage: Int? = 1
+    private var currentPage: Int = 1
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -39,7 +37,6 @@ class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
         val characterObserver = Observer<List<Character>> { characterList ->
                 adapter.listCharacters.addAll(characterList)
                 adapter.notifyDataSetChanged()
-                maxPage = viewModel.maxPage
         }
         viewModel.charactersLiveData.observe(viewLifecycleOwner, characterObserver)
 
@@ -58,14 +55,14 @@ class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
     }
 
     private fun setPagination(layoutManager: LinearLayoutManager) { // may be move it to application class
-        val scrollListener = object : EndlessRecyclerViewScrollListener(layoutManager) {
+        val scrollListener = object : CustomRecyclerViewScrollListener(layoutManager) {
             override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView?) {
-                if (currentPage <= maxPage!!){
+                if (currentPage < viewModel.maxPage!!){
                     viewModel.loadCharacters(++currentPage)
                 }
             }
         }
-        characterRecyclerView.addOnScrollListener(scrollListener as EndlessRecyclerViewScrollListener)
+        characterRecyclerView.addOnScrollListener(scrollListener as CustomRecyclerViewScrollListener)
     }
 }
 

@@ -2,7 +2,7 @@ package android.example.testappyarus.presentation.locationFlow.list
 
 import android.example.testappyarus.R
 import android.example.testappyarus.domain.locations.Location
-import android.example.testappyarus.presentation.common.EndlessRecyclerViewScrollListener
+import android.example.testappyarus.presentation.common.CustomRecyclerViewScrollListener
 import android.example.testappyarus.presentation.common.ViewModelFactory
 import android.example.testappyarus.presentation.common.YarusApp
 import android.os.Bundle
@@ -18,6 +18,7 @@ import javax.inject.Inject
 class LocationListFragment : Fragment(R.layout.fragment_locations_list) {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
+
     @Inject
     lateinit var adapter: LocationsListAdapter
     private lateinit var viewModel: LocationListViewModel
@@ -25,12 +26,11 @@ class LocationListFragment : Fragment(R.layout.fragment_locations_list) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        YarusApp.appComponent.inject(this) //may be it should be better initialized in Main Activity
-        initRecyclerView()
+        YarusApp.appComponent.inject(this)
         viewModel =
             ViewModelProvider(this, viewModelFactory)[LocationListViewModel::class.java]
         viewModel.loadLocations(currentPage)
-
+        initRecyclerView()
         val locationsObserver = Observer<List<Location>> { locationsList ->
             adapter.locationsList.addAll(locationsList)
             adapter.notifyDataSetChanged()
@@ -45,17 +45,20 @@ class LocationListFragment : Fragment(R.layout.fragment_locations_list) {
 
     private fun initRecyclerView() {
         val layoutManager = LinearLayoutManager(activity)
+        locationsRecyclerView.layoutManager = layoutManager
         locationsRecyclerView.setHasFixedSize(true)
         locationsRecyclerView.adapter = adapter
         setPagination(layoutManager)
     }
 
     private fun setPagination(layoutManager: LinearLayoutManager) { // may be move it to application class
-        val scrollListener = object : EndlessRecyclerViewScrollListener(layoutManager) {
+        val scrollListener = object : CustomRecyclerViewScrollListener(layoutManager) {
             override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView?) {
-                viewModel.loadLocations(++currentPage) // check if it isn't the last page
+                if (currentPage < viewModel.maxPage!!) {
+                    viewModel.loadLocations(++currentPage)
+                }
             }
         }
-        locationsRecyclerView.addOnScrollListener(scrollListener as EndlessRecyclerViewScrollListener)
+        locationsRecyclerView.addOnScrollListener(scrollListener as CustomRecyclerViewScrollListener)
     }
 }

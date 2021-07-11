@@ -10,5 +10,4 @@ data class Character(
     val gender: String,
     val imageUrl: String,
     val location: Location
-) {
-}
+)

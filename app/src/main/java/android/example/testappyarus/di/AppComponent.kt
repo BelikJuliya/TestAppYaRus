@@ -25,8 +25,6 @@ interface AppComponent : AndroidInjector<YarusApp> {
 
     override fun inject(application: YarusApp)
 
-    //fun inject(activity: MainActivity)
-
     fun inject(characterListFragment: CharacterListFragment)
 
     fun inject(characterDetailsFragment: CharacterDetailsFragment)

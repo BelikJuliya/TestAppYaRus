@@ -16,15 +16,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(R.style.RickMortyGreenTheme)
         setContentView(R.layout.activity_main)
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
-//        YarusApp.appComponent.inject(this)
-//
-//        val viewModel = ViewModelProvider(this, viewModelFactory)[CharacterViewModel::class.java]
-//        viewModel.getCharacterApiCall()
-
         val navigation = findViewById<View>(R.id.bottom_navigation) as BottomNavigationView
         navigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {

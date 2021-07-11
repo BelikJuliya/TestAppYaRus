@@ -55,7 +55,6 @@ class CharacterListAdapter :
                     it
                 )
         }
-
         val color = when (listCharacters[position].status) {
             "Dead" -> R.color.dead_red
             "Alive" -> R.color.alive_green

@@ -25,7 +25,7 @@ class EpisodesListAdapter : RecyclerView.Adapter<EpisodesListAdapter.EpisodesVie
         val itemView =
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.episodes_list_item, parent, false)
-        return EpisodesListAdapter.EpisodesViewHolder(itemView).listen { position ->
+        return EpisodesViewHolder(itemView).listen { position ->
             itemView.findNavController()
                 .navigate(
                     EpisodesListFragmentDirections

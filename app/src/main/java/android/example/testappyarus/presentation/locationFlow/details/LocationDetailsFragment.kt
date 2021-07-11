@@ -20,7 +20,7 @@ class LocationDetailsFragment : Fragment(R.layout.fragment_location_details) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        YarusApp.appComponent.inject(this) //may be it should be better initialized in Main Activity
+        YarusApp.appComponent.inject(this)
         val viewModel =
             ViewModelProvider(this, viewModelFactory)[LocationDetailsViewModel::class.java]
         val args by navArgs<CharacterDetailsFragmentArgs>()

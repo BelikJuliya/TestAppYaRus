@@ -2,7 +2,7 @@ package android.example.testappyarus.presentation.episodesFlow.list
 
 import android.example.testappyarus.R
 import android.example.testappyarus.domain.episodes.Episode
-import android.example.testappyarus.presentation.common.EndlessRecyclerViewScrollListener
+import android.example.testappyarus.presentation.common.CustomRecyclerViewScrollListener
 import android.example.testappyarus.presentation.common.ViewModelFactory
 import android.example.testappyarus.presentation.common.YarusApp
 import android.os.Bundle
@@ -18,11 +18,11 @@ import javax.inject.Inject
 class EpisodesListFragment : Fragment(R.layout.fragment_episodes_list) {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
+
     @Inject
     lateinit var adapter: EpisodesListAdapter
     private lateinit var viewModel: EpisodesListViewModel
-    private var currentPage: Int = 1 // make it constant
-    private val maxPage = 1
+    private var currentPage: Int = 1
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -52,14 +52,14 @@ class EpisodesListFragment : Fragment(R.layout.fragment_episodes_list) {
         setPagination(layoutManager)
     }
 
-    private fun setPagination(layoutManager: LinearLayoutManager) { // may be move it to application class
-        val scrollListener = object : EndlessRecyclerViewScrollListener(layoutManager) {
+    private fun setPagination(layoutManager: LinearLayoutManager) {
+        val scrollListener = object : CustomRecyclerViewScrollListener(layoutManager) {
             override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView?) {
-                if (currentPage <= maxPage){
+                if (currentPage < viewModel.maxPage!!) {
                     viewModel.loadEpisodes(++currentPage)
                 }
             }
         }
-        episodesRecyclerView.addOnScrollListener(scrollListener as EndlessRecyclerViewScrollListener)
+        episodesRecyclerView.addOnScrollListener(scrollListener as CustomRecyclerViewScrollListener)
     }
 }
