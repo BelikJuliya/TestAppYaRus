@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/sixteen_margin"
         android:layout_marginLeft="@dimen/sixteen_margin"
-        android:layout_marginTop="@dimen/four_margin"
+        android:layout_marginTop="@dimen/eight_margin"
         android:layout_marginBottom="@dimen/four_margin"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -53,11 +53,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/sixteen_margin"
         android:layout_marginLeft="@dimen/sixteen_margin"
-        android:layout_marginTop="@dimen/four_margin"
+        android:layout_marginEnd="@dimen/sixteen_margin"
+        android:layout_marginTop="@dimen/eight_margin"
+        android:fontFamily="serif"
         android:text="@string/name"
         android:textAppearance="?attr/textAppearanceListItem"
         android:textSize="@dimen/twenty_three_text_size"
-        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageLayout"
         app:layout_constraintTop_toTopOf="parent" />
 

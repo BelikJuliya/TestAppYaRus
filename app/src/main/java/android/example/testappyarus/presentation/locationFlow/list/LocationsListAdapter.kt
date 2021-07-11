@@ -39,8 +39,8 @@ class LocationsListAdapter : RecyclerView.Adapter<LocationsListAdapter.Locations
     override fun getItemCount() = locationsList.size
 
     class LocationsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var locationNameTextView: TextView = itemView.location_name
-        var locationTypeTextView: TextView = itemView.location_type
+        var locationNameTextView: TextView = itemView.locationName
+        var locationTypeTextView: TextView = itemView.locationType
         var locationDimensionTextView: TextView = itemView.locationDimension
     }
 }

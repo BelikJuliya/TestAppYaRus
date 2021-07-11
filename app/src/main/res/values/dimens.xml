@@ -6,7 +6,10 @@
     <dimen name="sixteen_margin">16dp</dimen>
     <dimen name="twenty_four_margin">24dp</dimen>
     <dimen name="avatar_small_size">60dp</dimen>
+    <dimen name="big_rich_image_height">230dp</dimen>
     <dimen name="sixteen_text_size">16sp</dimen>
     <dimen name="twenty_three_text_size">23sp</dimen>
     <dimen name="one_view_height">1dp</dimen>
+    <dimen name="three_view_height">3dp</dimen>
+    <dimen name="location_name_text_size">32sp</dimen>
 </resources>

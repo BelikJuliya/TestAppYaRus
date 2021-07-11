@@ -11,4 +11,8 @@
     <string name="episodes">Episodes</string>
     <string name="location_name">Name</string>
     <string name="species">Species</string>
+    <string name="dimension">Dimension</string>
+    <string name="type">Type</string>
+    <string name="dimension_details">Dimension:</string>
+    <string name="type_details">Type:</string>
 </resources>
