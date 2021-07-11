@@ -1,6 +1,7 @@
 package android.example.testappyarus.presentation.characterFlow.list
 
 import android.example.testappyarus.data.IRepository
+import android.example.testappyarus.data.rest.IResponse
 import android.example.testappyarus.domain.characters.Character
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,13 +12,14 @@ import javax.inject.Inject
 
 class CharacterViewModel @Inject constructor(private val repository: IRepository) : ViewModel() {
     var maxPage: Int? = 1
+    private var characterResponse: IResponse<List<Character>>? = null
     val charactersLiveData: MutableLiveData<List<Character>> by lazy {
         MutableLiveData<List<Character>>()
     }
 
     fun loadCharacters(page: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            val characterResponse = repository.getCharacters(page)
+            characterResponse = repository.getCharacters(page)
             charactersLiveData.postValue(characterResponse?.toDomainObject())
             maxPage = characterResponse?.getPage()
         }

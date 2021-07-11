@@ -18,7 +18,7 @@ interface IRepository {
 
     suspend fun getLocationDetails(id: Int): LocationResult?
 
-    suspend fun getEpisodes(): IResponse<List<Episode>>?
+    suspend fun getEpisodes(page: Int): IResponse<List<Episode>>?
 
     suspend fun getEpisodeDetails(id: Int): EpisodeResult?
 }

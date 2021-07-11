@@ -2,7 +2,6 @@ package android.example.testappyarus.presentation.locationFlow.list
 
 import android.example.testappyarus.R
 import android.example.testappyarus.domain.locations.Location
-import android.example.testappyarus.presentation.characterFlow.list.CharacterViewModel
 import android.example.testappyarus.presentation.common.EndlessRecyclerViewScrollListener
 import android.example.testappyarus.presentation.common.ViewModelFactory
 import android.example.testappyarus.presentation.common.YarusApp
@@ -13,7 +12,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.fragment_character_list.*
 import kotlinx.android.synthetic.main.fragment_locations_list.*
 import javax.inject.Inject
 
@@ -27,7 +25,7 @@ class LocationListFragment : Fragment(R.layout.fragment_locations_list) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         YarusApp.appComponent.inject(this) //may be it should be better initialized in Main Activity
-         viewModel =
+        viewModel =
             ViewModelProvider(this, viewModelFactory)[LocationListViewModel::class.java]
         viewModel.loadLocations(currentPage)
         initRecyclerView()

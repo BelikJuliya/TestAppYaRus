@@ -14,12 +14,7 @@ class RepositoryImpl @Inject constructor(
     private val apiService: ApiService
 ) : IRepository {
     override suspend fun getCharacters(page: Int): IResponse<List<Character>>? {
-        val tmp = apiService.getCharacters(page)
-//        val tmp = apiService.getCharacters()
-        println("response: " + tmp?.code())
-        println(tmp?.body())
-//        return apiService.getCharacters(page)?.body()
-        return tmp.body()
+        return apiService.getCharacters(page).body()
     }
 
     override suspend fun getCharacterDetails(id: Int): CharacterResult? {
@@ -27,15 +22,15 @@ class RepositoryImpl @Inject constructor(
     }
 
     override suspend fun getLocations(page: Int): IResponse<List<Location>>? {
-        return apiService.getLocations(page)?.body()
+        return apiService.getLocations(page).body()
     }
 
     override suspend fun getLocationDetails(id: Int): LocationResult? {
         return apiService.getLocationDetails(id).body()
     }
 
-    override suspend fun getEpisodes(): IResponse<List<Episode>>? {
-        return apiService.getEpisodes()?.body()
+    override suspend fun getEpisodes(page: Int): IResponse<List<Episode>>? {
+        return apiService.getEpisodes(page).body()
     }
 
     override suspend fun getEpisodeDetails(id: Int): EpisodeResult? {

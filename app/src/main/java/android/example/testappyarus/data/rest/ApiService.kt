@@ -20,13 +20,13 @@ interface ApiService {
     suspend fun getCharacterDetails(@Path("id") id: Int): Response<CharacterResult>
 
     @GET("location")
-    suspend fun getLocations(@Query("page") page: Int): Response<LocationResponse>?
+    suspend fun getLocations(@Query("page") page: Int): Response<LocationResponse>
 
     @GET("location/{id}")
     suspend fun getLocationDetails(@Path("id") id: Int): Response<LocationResult>
 
     @GET("episode")
-    suspend fun getEpisodes(): Response<EpisodeResponse>?
+    suspend fun getEpisodes(@Query("page") page: Int): Response<EpisodeResponse>
 
     @GET("episode/{id}")
     suspend fun getEpisodeDetails(@Path("id") id: Int): Response<EpisodeResult>
