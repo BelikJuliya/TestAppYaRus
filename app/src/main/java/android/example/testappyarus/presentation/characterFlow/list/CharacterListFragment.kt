@@ -23,15 +23,17 @@ import javax.inject.Inject
 class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
-    private val adapter = CharacterListAdapter()
+    @Inject
+    lateinit var adapter: CharacterListAdapter
+    //private val adapter = CharacterListAdapter()
     private lateinit var viewModel: CharacterViewModel
     private var currentPage: Int = 1 // make it constant
     private var maxPage: Int? = 1
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initRecyclerView()
         YarusApp.appComponent.inject(this) //may be it should be better initialized in Main Activity
+        initRecyclerView()
         viewModel = ViewModelProvider(this, viewModelFactory)[CharacterViewModel::class.java]
         viewModel.loadCharacters(currentPage)
         val characterObserver = Observer<List<Character>> { characterList ->

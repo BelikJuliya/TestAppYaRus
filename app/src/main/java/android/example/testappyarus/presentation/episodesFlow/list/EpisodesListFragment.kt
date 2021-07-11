@@ -18,7 +18,8 @@ import javax.inject.Inject
 class EpisodesListFragment : Fragment(R.layout.fragment_episodes_list) {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
-    private var adapter = EpisodesListAdapter()
+    @Inject
+    lateinit var adapter: EpisodesListAdapter
     private lateinit var viewModel: EpisodesListViewModel
     private var currentPage: Int = 1 // make it constant
     private val maxPage = 1

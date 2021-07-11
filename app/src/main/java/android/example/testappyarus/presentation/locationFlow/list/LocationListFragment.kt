@@ -18,17 +18,18 @@ import javax.inject.Inject
 class LocationListFragment : Fragment(R.layout.fragment_locations_list) {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
-    private var adapter = LocationsListAdapter()
+    @Inject
+    lateinit var adapter: LocationsListAdapter
     private lateinit var viewModel: LocationListViewModel
     private var currentPage: Int = 1
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         YarusApp.appComponent.inject(this) //may be it should be better initialized in Main Activity
+        initRecyclerView()
         viewModel =
             ViewModelProvider(this, viewModelFactory)[LocationListViewModel::class.java]
         viewModel.loadLocations(currentPage)
-        initRecyclerView()
 
         val locationsObserver = Observer<List<Location>> { locationsList ->
             adapter.locationsList.addAll(locationsList)
@@ -44,7 +45,6 @@ class LocationListFragment : Fragment(R.layout.fragment_locations_list) {
 
     private fun initRecyclerView() {
         val layoutManager = LinearLayoutManager(activity)
-        //locationsRecyclerView.layoutManager = LinearLayoutManager(activity)
         locationsRecyclerView.setHasFixedSize(true)
         locationsRecyclerView.adapter = adapter
         setPagination(layoutManager)
