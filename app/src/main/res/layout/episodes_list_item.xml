@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -9,10 +8,12 @@
         android:id="@+id/episodeName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:layout_marginStart="@dimen/sixteen_margin"
+        android:layout_marginLeft="@dimen/sixteen_margin"
+        android:layout_marginTop="@dimen/eight_margin"
+        android:fontFamily="serif"
+        android:text="@string/name"
+        android:textSize="@dimen/twenty_three_text_size"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -20,10 +21,13 @@
         android:id="@+id/airDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:layout_marginStart="@dimen/sixteen_margin"
+        android:layout_marginLeft="@dimen/sixteen_margin"
+        android:layout_marginTop="@dimen/eight_margin"
+        android:layout_marginBottom="@dimen/eight_margin"
+        android:text="@string/airdate"
+        android:textSize="@dimen/sixteen_text_size"
+        app:layout_constraintBottom_toTopOf="@+id/lineView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/episodeName" />
 
@@ -31,23 +35,25 @@
         android:id="@+id/episode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginEnd="@dimen/sixteen_margin"
+        android:layout_marginRight="@dimen/sixteen_margin"
+        android:layout_marginBottom="@dimen/eight_margin"
+        android:text="@string/episode"
+        android:textSize="@dimen/sixteen_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <View
+        android:id="@+id/lineView"
         android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_height="@dimen/one_view_height"
+        android:layout_marginStart="@dimen/eight_margin"
+        android:layout_marginLeft="@dimen/eight_margin"
+        android:layout_marginEnd="@dimen/eight_margin"
+        android:layout_marginRight="@dimen/eight_margin"
+        android:background="@color/green_kislot"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/purple_200"
-        app:layout_constraintTop_toBottomOf="@+id/airDate" />
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

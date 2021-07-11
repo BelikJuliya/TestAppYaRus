@@ -7,12 +7,9 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:src="@drawable/episode"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/big_rich_image_height"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,51 +19,64 @@
         android:id="@+id/episodeDetailsName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="28dp"
-        android:text="TextView"
+        android:layout_marginStart="@dimen/twenty_four_margin"
+        android:layout_marginLeft="@dimen/twenty_four_margin"
+        android:layout_marginTop="@dimen/twenty_four_margin"
+        android:layout_marginEnd="@dimen/sixteen_margin"
+        android:layout_marginRight="@dimen/sixteen_margin"
+        android:fontFamily="serif"
+        android:text="@string/location_name"
+        android:textColor="@color/green_kislot"
+        android:textSize="@dimen/location_name_text_size"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
+
     <View
-        android:id="@+id/view3"
+        android:id="@+id/view2"
         android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/purple_200"
-        app:layout_constraintTop_toBottomOf="@+id/episodeDetailsName"
-        tools:layout_editor_absoluteX="0dp" />
+        android:layout_height="@dimen/three_view_height"
+        android:layout_marginStart="@dimen/sixteen_margin"
+        android:layout_marginTop="@dimen/sixteen_margin"
+        android:layout_marginEnd="@dimen/sixteen_margin"
+        android:background="@color/green_kislot"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/episodeDetailsName" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
-        android:text="Air-date: "
+        android:layout_marginStart="@dimen/sixteen_margin"
+        android:layout_marginLeft="@dimen/sixteen_margin"
+        android:layout_marginTop="@dimen/twenty_four_margin"
+        android:text="@string/air_date_details"
+        android:textSize="@dimen/twenty_three_text_size"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view3" />
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
 
     <TextView
         android:id="@+id/episodeDetailsAirDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="@dimen/sixteen_margin"
+        android:layout_marginLeft="@dimen/sixteen_margin"
+        android:layout_marginTop="@dimen/twenty_four_margin"
+        android:text="@string/airdate"
+        android:textSize="@dimen/twenty_three_text_size"
         app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/view3" />
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="35dp"
-        android:text="Episode:"
+        android:layout_marginStart="@dimen/sixteen_margin"
+        android:layout_marginLeft="@dimen/sixteen_margin"
+        android:layout_marginTop="@dimen/sixteen_margin"
+        android:text="@string/episode_deyails"
+        android:textSize="@dimen/twenty_three_text_size"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -74,9 +84,11 @@
         android:id="@+id/episodeDetailsEpisode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="@dimen/sixteen_margin"
+        android:layout_marginLeft="@dimen/sixteen_margin"
+        android:layout_marginTop="@dimen/sixteen_margin"
+        android:text="@string/episode"
+        android:textSize="@dimen/twenty_three_text_size"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/episodeDetailsAirDate" />
 </androidx.constraintlayout.widget.ConstraintLayout>

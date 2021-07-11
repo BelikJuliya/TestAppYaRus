@@ -15,4 +15,8 @@
     <string name="type">Type</string>
     <string name="dimension_details">Dimension:</string>
     <string name="type_details">Type:</string>
+    <string name="airdate">airDate</string>
+    <string name="episode">Episode</string>
+    <string name="air_date_details">Air-date:</string>
+    <string name="episode_deyails">Episode:</string>
 </resources>
