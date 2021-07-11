@@ -91,6 +91,21 @@ abstract class EndlessRecyclerViewScrollListener(layoutManager: LinearLayoutMana
         loading = true
     }
 
+    override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+        super.onScrollStateChanged(recyclerView, newState)
+        // Don't do any work until after the ScrollEvent has ended, so do the following check.
+        if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+            // supply a positive number to recyclerView.canScrollVertically(int direction) to check if scrolling down.
+            val canScrollDownMore = recyclerView.canScrollVertically(1)
+            // If recyclerView.canScrollVertically(1) returns false it means you're at the end of the list.
+            if (!canScrollDownMore) {
+                //call the overridden onScrolled() method in our EndlessRecyclerViewScrollListener class.
+                // supply any positive number to the third argument to indicate that we've scrolled downward.
+                onScrolled(recyclerView, 0, 1)
+            }
+        }
+    }
+
     // Defines the process for actually loading more data based on page
     abstract fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView?)
 }

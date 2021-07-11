@@ -10,4 +10,5 @@
     <string name="locations">Locations</string>
     <string name="episodes">Episodes</string>
     <string name="location_name">Name</string>
+    <string name="species">Species</string>
 </resources>
