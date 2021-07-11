@@ -6,11 +6,11 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/character_big_avatar"
+        android:id="@+id/characterBigAvatar"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_height="@dimen/character_details_image_size"
+        android:layout_marginStart="@dimen/sixteen_margin"
+        android:layout_marginEnd="@dimen/sixteen_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -18,119 +18,128 @@
 
     <TextView
         android:id="@+id/name"
-        android:layout_width="269dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/twenty_four_margin"
+        android:layout_marginLeft="@dimen/twenty_four_margin"
+        android:layout_marginTop="@dimen/sixteen_margin"
         android:fontFamily="serif"
         android:gravity="center_vertical"
         android:text="@string/name"
-        android:textColor="@color/purple_200"
-        android:textSize="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:textColor="@color/green_kislot"
+        android:textSize="@dimen/location_name_text_size"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/character_big_avatar" />
+        app:layout_constraintTop_toBottomOf="@+id/characterBigAvatar" />
 
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/purple_200"
-        app:layout_constraintTop_toBottomOf="@+id/name"
-        tools:layout_editor_absoluteX="30dp" />
+        android:layout_height="@dimen/three_view_height"
+        android:layout_marginStart="@dimen/sixteen_margin"
+        android:layout_marginLeft="@dimen/sixteen_margin"
+        android:layout_marginTop="@dimen/sixteen_margin"
+        android:layout_marginEnd="@dimen/sixteen_margin"
+        android:layout_marginRight="@dimen/sixteen_margin"
+        android:background="@color/green_kislot"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <TextView
-        android:id="@+id/character_details_gender"
+        android:id="@+id/characterDetailsGender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="@dimen/sixteen_margin"
+        android:layout_marginLeft="@dimen/sixteen_margin"
+        android:layout_marginTop="@dimen/sixteen_margin"
         android:text="@string/gender"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
+        android:textSize="@dimen/twenty_three_text_size"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <TextView
-        android:id="@+id/charater_details_location"
+        android:id="@+id/locationCharDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="@dimen/sixteen_margin"
+        android:layout_marginLeft="@dimen/sixteen_margin"
+        android:layout_marginTop="@dimen/sixteen_margin"
         android:text="@string/location"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.087"
+        android:textSize="@dimen/twenty_three_text_size"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/character_details_gender" />
+        app:layout_constraintTop_toBottomOf="@+id/characterDetailsGender" />
 
     <TextView
-        android:id="@+id/species"
+        android:id="@+id/charDetSpecies"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Species: "
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.087"
+        android:layout_marginStart="@dimen/sixteen_margin"
+        android:layout_marginLeft="@dimen/sixteen_margin"
+        android:layout_marginTop="@dimen/sixteen_margin"
+        android:text="@string/species_details"
+        android:textSize="@dimen/twenty_three_text_size"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/charater_details_location" />
+        app:layout_constraintTop_toBottomOf="@+id/locationCharDetails" />
 
     <TextView
-        android:id="@+id/character_details_status"
+        android:id="@+id/characterDetailsStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="@dimen/sixteen_margin"
+        android:layout_marginLeft="@dimen/sixteen_margin"
+        android:layout_marginTop="@dimen/sixteen_margin"
         android:text="@string/status"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.087"
+        android:textSize="@dimen/twenty_three_text_size"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/species" />
+        app:layout_constraintTop_toBottomOf="@+id/charDetSpecies" />
 
     <TextView
         android:id="@+id/gender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.155"
-        app:layout_constraintStart_toEndOf="@+id/character_details_gender"
+        android:layout_marginStart="@dimen/sixteen_margin"
+        android:layout_marginLeft="@dimen/sixteen_margin"
+        android:layout_marginTop="@dimen/sixteen_margin"
+        android:text="@string/gender"
+        android:textSize="@dimen/twenty_three_text_size"
+        app:layout_constraintStart_toEndOf="@+id/characterDetailsGender"
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <TextView
         android:id="@+id/location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.126"
-        app:layout_constraintStart_toEndOf="@+id/charater_details_location"
+        android:layout_marginStart="@dimen/sixteen_margin"
+        android:layout_marginLeft="@dimen/sixteen_margin"
+        android:layout_marginTop="@dimen/sixteen_margin"
+        android:layout_marginEnd="@dimen/sixteen_margin"
+        android:text="@string/location"
+        android:textSize="@dimen/twenty_three_text_size"
+        app:layout_constraintStart_toEndOf="@+id/locationCharDetails"
         app:layout_constraintTop_toBottomOf="@+id/gender" />
 
     <TextView
-        android:id="@+id/origin"
+        android:id="@+id/species"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.131"
-        app:layout_constraintStart_toEndOf="@+id/species"
+        android:layout_marginStart="@dimen/sixteen_margin"
+        android:layout_marginLeft="@dimen/sixteen_margin"
+        android:layout_marginTop="@dimen/sixteen_margin"
+        android:text="@string/species"
+        android:textSize="@dimen/twenty_three_text_size"
+        app:layout_constraintStart_toEndOf="@+id/charDetSpecies"
         app:layout_constraintTop_toBottomOf="@+id/location" />
 
     <TextView
         android:id="@+id/status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.163"
-        app:layout_constraintStart_toEndOf="@+id/character_details_status"
-        app:layout_constraintTop_toBottomOf="@+id/origin" />
+        android:layout_marginStart="@dimen/sixteen_margin"
+        android:layout_marginLeft="@dimen/sixteen_margin"
+        android:layout_marginTop="@dimen/sixteen_margin"
+        android:text="@string/status"
+        android:textSize="@dimen/twenty_three_text_size"
+        app:layout_constraintStart_toEndOf="@+id/characterDetailsStatus"
+        app:layout_constraintTop_toBottomOf="@+id/species" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,4 +12,5 @@
     <dimen name="one_view_height">1dp</dimen>
     <dimen name="three_view_height">3dp</dimen>
     <dimen name="location_name_text_size">32sp</dimen>
+    <dimen name="character_details_image_size">200dp</dimen>
 </resources>

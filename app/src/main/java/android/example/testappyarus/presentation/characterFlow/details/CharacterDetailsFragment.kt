@@ -31,10 +31,10 @@ class CharacterDetailsFragment : Fragment(R.layout.fragment_character_details) {
             gender.text = result.gender
             location.text = result.location.name
             status.text = result.status
-            species.text = result.species
-            Glide.with(character_big_avatar).load(result.image)
+            charDetSpecies.text = result.species
+            Glide.with(characterBigAvatar).load(result.image)
                 .apply(RequestOptions.centerCropTransform())
-                .into(character_big_avatar)
+                .into(characterBigAvatar)
         }
         viewModel.charactersDetailsLiveData.observe(viewLifecycleOwner, characterDetailsObserver)
     }
