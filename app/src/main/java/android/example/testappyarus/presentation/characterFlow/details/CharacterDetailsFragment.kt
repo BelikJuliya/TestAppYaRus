@@ -31,7 +31,7 @@ class CharacterDetailsFragment : Fragment(R.layout.fragment_character_details) {
             gender.text = result.gender
             location.text = result.location.name
             status.text = result.status
-            charDetSpecies.text = result.species
+            species.text = result.species
             Glide.with(characterBigAvatar).load(result.image)
                 .apply(RequestOptions.centerCropTransform())
                 .into(characterBigAvatar)

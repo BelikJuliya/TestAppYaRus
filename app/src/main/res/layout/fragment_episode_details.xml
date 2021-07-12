@@ -20,17 +20,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/twenty_four_margin"
-        android:layout_marginLeft="@dimen/twenty_four_margin"
         android:layout_marginTop="@dimen/twenty_four_margin"
         android:layout_marginEnd="@dimen/sixteen_margin"
-        android:layout_marginRight="@dimen/sixteen_margin"
         android:fontFamily="serif"
         android:text="@string/location_name"
         android:textColor="@color/green_kislot"
         android:textSize="@dimen/location_name_text_size"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
 
     <View
         android:id="@+id/view2"
@@ -61,9 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/sixteen_margin"
-        android:layout_marginLeft="@dimen/sixteen_margin"
         android:layout_marginTop="@dimen/twenty_four_margin"
-        android:text="@string/airdate"
         android:textSize="@dimen/twenty_three_text_size"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/view2" />
@@ -73,7 +68,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/sixteen_margin"
-        android:layout_marginLeft="@dimen/sixteen_margin"
         android:layout_marginTop="@dimen/sixteen_margin"
         android:text="@string/episode_deyails"
         android:textSize="@dimen/twenty_three_text_size"
@@ -85,9 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/sixteen_margin"
-        android:layout_marginLeft="@dimen/sixteen_margin"
         android:layout_marginTop="@dimen/sixteen_margin"
-        android:text="@string/episode"
         android:textSize="@dimen/twenty_three_text_size"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/episodeDetailsAirDate" />
